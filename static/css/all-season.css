@@ -1,0 +1,329 @@
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  padding: 22px 0 0;
+  font-size: 12.5px;
+  color: #4A3540;
+}
+
+.breadcrumb span {
+  margin: 0 8px;
+  opacity: 0.5;
+}
+
+.breadcrumb a:hover {
+  color: #D91C73;
+}
+
+.breadcrumb .current {
+  color: #1A0F14;
+  font-weight: 600;
+}
+
+/* ---------- Intro ---------- */
+.intro {
+  padding: 34px 0 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.intro h1 {
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-style: italic;
+  font-weight: 500;
+  font-family: 'Fraunces', serif;
+  margin: 0;
+}
+
+.intro p {
+  font-size: 14.5px;
+  color: #4A3540;
+  margin-top: 14px;
+  max-width: 460px;
+  line-height: 1.7;
+}
+
+.intro .count {
+  font-size: 12.5px;
+  color: #4A3540;
+  white-space: nowrap;
+}
+
+/* ---------- Filter Bar ---------- */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 0;
+  margin-top: 14px;
+  border-top: 1px solid #E9D9CE;
+  border-bottom: 1px solid #E9D9CE;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.chip-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 9px 16px;
+  border: 1px solid #E9D9CE;
+  border-radius: 30px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #FFFFFF;
+  transition: all 0.15s ease;
+}
+
+.chip:hover {
+  border-color: #1A0F14;
+}
+
+.chip.active {
+  background: #1A0F14;
+  color: #fff;
+  border-color: #1A0F14;
+}
+
+select#sortSelect {
+  border: 1px solid #E9D9CE;
+  border-radius: 2px;
+  padding: 10px 14px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12.5px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+/* ---------- Product Grid ---------- */
+.p-grid {
+  padding: 44px 0 100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1000px) {
+  .p-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .p-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .p-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.p-card {
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.p-card:hover {
+  transform: translateY(-5px);
+}
+
+.p-img {
+  aspect-ratio: 4/5;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.3s ease;
+}
+
+.p-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.p-img .badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1A0F14;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.p-card h4 {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 14px;
+  font-family: 'Fraunces', serif;
+}
+
+.p-card .pp-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.p-card .pp {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.p-card .stars {
+  font-size: 10.5px;
+  color: #B08D57;
+  letter-spacing: 1px;
+}
+
+/* ---------- Product Images ---------- */
+.pc1::before {
+  background-image: url('/media/home/collection_all_season.png');
+  background-color: #C17D4E;
+}
+
+.pc2::before {
+  background-image: url('/media/home/collection_all_season.png');
+  background-color: #C17D4E;
+}
+
+.pc3::before {
+  background-image: url('/media/home/collection_all_season.png');
+  background-color: #C17D4E;
+}
+
+.pc4::before {
+  background-image: url('/media/home/collection_all_season.png');
+  background-color: #C17D4E;
+}
+
+.pc5::before {
+  background-image: url('/media/home/collection_all_season.png');
+  background-color: #C17D4E;
+}
+
+.pc6::before {
+  background-image: url('/media/home/collection_all_season.png');
+  background-color: #C17D4E;
+}
+
+.pc7::before {
+  background-image: url('/media/home/collection_all_season.png');
+  background-color: #C17D4E;
+}
+
+.pc8::before {
+  background-image: url('/media/home/collection_all_season.png');
+  background-color: #C17D4E;
+}
+
+/* ---------- Utility ---------- */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 700;
+  color: #A5673E;
+}
+
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 20px;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid #D91C73;
+  outline-offset: 3px;
+}
+
+/* ---------- Pagination ---------- */
+.pagination {
+  padding: 40px 0 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.page-btn {
+  padding: 12px 24px;
+  border: 1px solid #E9D9CE;
+  border-radius: 4px;
+  background: #FFFFFF;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1A0F14;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: #1A0F14;
+  color: #FFFFFF;
+  border-color: #1A0F14;
+}
+
+.page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: #F5F0ED;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.page-num {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #E9D9CE;
+  border-radius: 4px;
+  background: #FFFFFF;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1A0F14;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-num:hover {
+  border-color: #1A0F14;
+}
+
+.page-num.active {
+  background: #1A0F14;
+  color: #FFFFFF;
+  border-color: #1A0F14;
+}

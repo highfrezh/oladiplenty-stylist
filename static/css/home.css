@@ -1,0 +1,162 @@
+/* ---------- Lookbook slider ---------- */
+.lookbook-slide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lookbook-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lookbook-slide img {
+  transition: transform 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(1.05);
+}
+
+.lookbook-slide.active img {
+  transform: scale(1.00);
+}
+
+.lookbook-tab .tab-progress {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #D91C73;
+  transition: width 5000ms linear;
+}
+
+.lookbook-tab.active .tab-progress {
+  width: 100%;
+}
+
+.lookbook-tab.active.paused .tab-progress {
+  width: 100%;
+  transition: none;
+}
+
+/* ---------- Rail track ---------- */
+.rail-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.rail-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Collection cards ---------- */
+.cat-card {
+  isolation: isolate;
+  transition: transform .3s ease;
+}
+
+.cat-card:hover {
+  transform: translateY(-6px);
+}
+
+.cat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  transition: transform .6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cat-card:hover::before {
+  transform: scale(1.05);
+}
+
+.cat-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(36, 20, 25, 0.1) 20%, rgba(36, 20, 25, 0.82) 100%);
+}
+
+.cat-card.c1::before {
+  background-image: url('/media/home/collection_corporate.png');
+  background-color: #2C2028;
+}
+
+.cat-card.c2::before {
+  background-image: url('/media/home/collection_all_season.png');
+  background-color: #C17D4E;
+}
+
+.cat-card.c3::before {
+  background-image: url('/media/home/collection_african_prints.png');
+  background-color: #D91C73;
+}
+
+.cat-card.c4::before {
+  background-image: url('/media/home/collection_abaya.png');
+  background-color: #3a2c33;
+}
+
+.cat-card.c5::before {
+  background-image: url('/media/home/collection_reusable_bags.png');
+  background-color: #8a6b3f;
+}
+
+/* ---------- Reveal animation ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Feature grid ---------- */
+.feature-grid {
+  background: #E9D9CE;
+  border: 1px solid #E9D9CE;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.feature-item {
+  background: #FFFFFF;
+  transition: background .25s ease;
+}
+
+.feature-item:hover {
+  background: #FBF3EF;
+}
+
+.feature-item:hover .feature-icon {
+  background: #D91C73;
+  color: #fff;
+}
+
+/* ---------- Visual hover effects ---------- */
+.about-visual-overlay,
+.bespoke-overlay {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.about-visual:hover .about-visual-overlay,
+.bespoke-visual:hover .bespoke-overlay {
+  opacity: 1;
+}
+
+.about-visual img,
+.bespoke-visual img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-visual:hover img,
+.bespoke-visual:hover img {
+  transform: scale(1.05);
+}
