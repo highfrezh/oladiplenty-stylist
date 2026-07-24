@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Oladiplenty Stylist Consult — Modesty, Elegance & Diversity{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        magenta: '#D91C73',
+                        'magenta-deep': '#B4145E',
+                        terracotta: '#C17D4E',
+                        'terracotta-deep': '#A5673E',
+                        'terracotta-light': '#E2C4A2',
+                        ink: '#241419',
+                        'ink-soft': '#4A3540',
+                        blush: '#FBF3EF',
+                        'blush-deep': '#F5E7E0',
+                        card: '#FFFFFF',
+                        line: '#E9D9CE',
+                        gold: '#B08D57',
+                        'gold-light': '#D4B078',
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'serif'],
+                        sans: ['Manrope', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: '2px',
+                    },
+                },
+            }
+        }
+    </script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .monogram {
+            position: relative;
+            display: inline-block;
+        }
+
+        .monogram .o,
+        .monogram .s {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 600;
+            line-height: 1;
+            mix-blend-mode: multiply;
+        }
+
+        .monogram .o {
+            color: #D91C73;
+        }
+
+        .monogram .s {
+            color: #C17D4E;
+            left: 0.34em;
+        }
+
+        .foot-brand .monogram .o,
+        .foot-brand .monogram .s {
+            mix-blend-mode: normal;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #FBF3EF;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #C17D4E;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A5673E;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 2px solid #D91C73;
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-blush text-ink font-sans antialiased">
+
+    {% include "includes/navbar.html" %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include "includes/footer.html" %}
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>

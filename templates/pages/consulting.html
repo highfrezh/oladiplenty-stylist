@@ -1,0 +1,306 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Fashion Consulting — Resources, Masterclass & Business Programme | Oladiplenty Stylist Consult{% endblock %}
+
+{% block content %}
+<div class="wrap breadcrumb">
+  <a href="{% url 'home' %}">Home</a><span>/</span>
+  <span style="color:var(--ink); font-weight:600;">Consulting</span>
+</div>
+
+<div class="wrap intro">
+  <p class="eyebrow">Fashion Consulting</p>
+  <h1>Learn, launch, and grow — with guidance built from real experience.</h1>
+  <p>Everything under Consulting in one place: downloadable business &amp; sustainability guides you can use today, a full Women's Fashion Masterclass to build your design skills, and a Fashion Business Management Programme to build the business around them.</p>
+</div>
+
+<div class="subnav">
+  <div class="wrap subnav-inner" id="subnavTabs">
+    <a href="#resources" data-target="resources">Digital Resources</a>
+    <a href="#masterclass" data-target="masterclass">Women's Fashion Masterclass</a>
+    <a href="#business" data-target="business">Business Management Programme</a>
+  </div>
+</div>
+
+<!-- ============================================================
+DIGITAL RESOURCES
+============================================================ -->
+<section id="resources">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="head-main">
+        <span class="eyebrow">Guidance to Business, Fashion &amp; Sustainability</span>
+        <h2>Practical resources to support your fashion journey.</h2>
+        <p>Fashion business guides, sustainability guides, business templates, pricing guides, e-books and practical checklists — instantly downloadable after purchase.</p>
+      </div>
+      <div class="head-aside">
+        <span class="aside-label">What You Get</span>
+        <div class="head-stat"><b>7</b><span>Guides available now</span></div>
+        <div class="head-stat"><b>Instant</b><span>PDF delivery after purchase</span></div>
+        <div class="head-stat"><b>Secure</b><span>Card checkout, no account needed</span></div>
+      </div>
+    </div>
+
+    <div class="filter-tabs" id="filterTabs">
+      <div class="filter-tab active" data-cat="all">All Resources</div>
+      <div class="filter-tab" data-cat="business">Business Guides</div>
+      <div class="filter-tab" data-cat="sustainability">Sustainability</div>
+      <div class="filter-tab" data-cat="templates">Templates</div>
+      <div class="filter-tab" data-cat="pricing">Pricing</div>
+      <div class="filter-tab" data-cat="ebooks">E-books</div>
+      <div class="filter-tab" data-cat="checklists">Checklists</div>
+    </div>
+
+    <div class="shop-grid" id="shopGrid">
+      <div class="r-card" data-cat="business">
+        <div class="r-cover cov-1"><span class="cat">Business Guide</span><span class="t">Fashion Business Starter Guide</span></div>
+        <div class="r-body">
+          <span class="tag">Fashion Business Guides</span>
+          <h3>Fashion Business Starter Guide</h3>
+          <p>A step-by-step introduction to registering, structuring, and launching your own fashion label from the ground up.</p>
+          <div class="r-foot"><span class="r-price">£15.00</span><button class="r-buy" onclick="buyGuide(this)">Buy &amp; Download</button></div>
+        </div>
+      </div>
+      <div class="r-card" data-cat="sustainability">
+        <div class="r-cover cov-2"><span class="cat">Sustainability</span><span class="t">The Sustainable Fashion Guide</span></div>
+        <div class="r-body">
+          <span class="tag">Sustainability Guides</span>
+          <h3>The Sustainable Fashion Guide</h3>
+          <p>Practical ways to reduce fabric waste, source responsibly, and build sustainability into your brand's everyday operations.</p>
+          <div class="r-foot"><span class="r-price">£12.00</span><button class="r-buy" onclick="buyGuide(this)">Buy &amp; Download</button></div>
+        </div>
+      </div>
+      <div class="r-card" data-cat="pricing">
+        <div class="r-cover cov-3"><span class="cat">Pricing Guide</span><span class="t">Pricing Your Garments With Confidence</span></div>
+        <div class="r-body">
+          <span class="tag">Pricing Guides</span>
+          <h3>Pricing Your Garments With Confidence</h3>
+          <p>A clear framework for costing materials and labour, and pricing ready-to-wear and bespoke pieces profitably.</p>
+          <div class="r-foot"><span class="r-price">£10.00</span><button class="r-buy" onclick="buyGuide(this)">Buy &amp; Download</button></div>
+        </div>
+      </div>
+      <div class="r-card" data-cat="templates">
+        <div class="r-cover cov-4"><span class="cat">Templates</span><span class="t">Fashion Brand Templates Pack</span></div>
+        <div class="r-body">
+          <span class="tag">Business Templates</span>
+          <h3>Fashion Brand Templates Pack</h3>
+          <p>Editable invoice, order form, measurement sheet and social media planner templates, ready to brand as your own.</p>
+          <div class="r-foot"><span class="r-price">£18.00</span><button class="r-buy" onclick="buyGuide(this)">Buy &amp; Download</button></div>
+        </div>
+      </div>
+      <div class="r-card" data-cat="ebooks">
+        <div class="r-cover cov-5"><span class="cat">E-book</span><span class="t">The Modest Fashion E-Book</span></div>
+        <div class="r-body">
+          <span class="tag">Fashion E-books</span>
+          <h3>The Modest Fashion E-Book</h3>
+          <p>An illustrated guide to styling modest silhouettes across corporate, casual and occasion wear.</p>
+          <div class="r-foot"><span class="r-price">£14.00</span><button class="r-buy" onclick="buyGuide(this)">Buy &amp; Download</button></div>
+        </div>
+      </div>
+      <div class="r-card" data-cat="checklists">
+        <div class="r-cover cov-6"><span class="cat">Checklist</span><span class="t">Fashion Business Launch Checklist</span></div>
+        <div class="r-body">
+          <span class="tag">Practical Checklists</span>
+          <h3>Fashion Business Launch Checklist</h3>
+          <p>Every task to tick off before your first collection goes live — from sourcing to socials to soft launch.</p>
+          <div class="r-foot"><span class="r-price">£8.00</span><button class="r-buy" onclick="buyGuide(this)">Buy &amp; Download</button></div>
+        </div>
+      </div>
+      <div class="r-card" data-cat="business">
+        <div class="r-cover cov-7"><span class="cat">Business Guide</span><span class="t">Fabric &amp; Sourcing Guide</span></div>
+        <div class="r-body">
+          <span class="tag">Fashion Business Guides</span>
+          <h3>Fabric &amp; Sourcing Guide</h3>
+          <p>Where and how to source quality fabric — for African prints, corporate wear textiles, and modest wear fabrics alike.</p>
+          <div class="r-foot"><span class="r-price">£12.00</span><button class="r-buy" onclick="buyGuide(this)">Buy &amp; Download</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="how">
+      <div class="how-step"><span class="n">01</span><h4>Choose a Guide</h4><p>Browse the resources above and pick the one that fits where your business is right now.</p></div>
+      <div class="how-step"><span class="n">02</span><h4>Secure Checkout</h4><p>Pay securely by card — no account required.</p></div>
+      <div class="how-step"><span class="n">03</span><h4>Instant Download</h4><p>Your PDF downloads straight to your device — ready to use immediately.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+WOMEN'S FASHION MASTERCLASS
+============================================================ -->
+<section id="masterclass">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="head-main">
+        <span class="eyebrow">Women's Fashion Masterclass</span>
+        <h2>Master the art of women's fashion design.</h2>
+        <p>Whether you're taking your first step into fashion or refining your skills, this masterclass builds practical knowledge, professional technique, and the confidence to create well-crafted garments.</p>
+      </div>
+      <div class="head-aside">
+        <span class="aside-label">Programme At a Glance</span>
+        <div class="head-stat"><b>10</b><span>Core modules</span></div>
+        <div class="head-stat"><b>Online</b><span>Live &amp; self-paced</span></div>
+        <div class="head-stat"><b>Optional</b><span>Certificate of completion</span></div>
+      </div>
+    </div>
+
+    <div>
+      <span class="eyebrow">What You'll Learn</span>
+      <div class="learn-grid">
+        <div class="learn-item"><span class="n">01</span><p>Introduction to Fashion Design</p></div>
+        <div class="learn-item"><span class="n">02</span><p>Understanding Body Measurements</p></div>
+        <div class="learn-item"><span class="n">03</span><p>Fabric Selection and Textile Knowledge</p></div>
+        <div class="learn-item"><span class="n">04</span><p>Pattern Drafting and Pattern Cutting</p></div>
+        <div class="learn-item"><span class="n">05</span><p>Garment Construction Techniques</p></div>
+        <div class="learn-item"><span class="n">06</span><p>Sewing and Professional Finishing</p></div>
+        <div class="learn-item"><span class="n">07</span><p>Women's Wear Design (Corporate, Casual, Ankara &amp; Abaya)</p></div>
+        <div class="learn-item"><span class="n">08</span><p>Fashion Illustration Basics</p></div>
+        <div class="learn-item"><span class="n">09</span><p>Quality Control and Garment Fitting</p></div>
+        <div class="learn-item"><span class="n">10</span><p>Building Your Fashion Portfolio</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;">
+      <span class="eyebrow">Who Is This For</span>
+      <div class="who-grid">
+        <div class="who-item"><p>Beginners with no prior experience</p></div>
+        <div class="who-item"><p>Aspiring Fashion Designers</p></div>
+        <div class="who-item"><p>Sewing Enthusiasts</p></div>
+        <div class="who-item"><p>Fashion Entrepreneurs</p></div>
+        <div class="who-item"><p>Anyone developing professional design skills</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;">
+      <span class="eyebrow">Programme Includes</span>
+      <div class="includes-grid">
+        <div class="include-card"><div class="icon">🎥</div><h4>Live Online Classes</h4><p>Real-time sessions where you can ask questions as you learn.</p></div>
+        <div class="include-card"><div class="icon">✂️</div><h4>Step-by-Step Demonstrations</h4><p>Practical, hands-on walkthroughs of every technique.</p></div>
+        <div class="include-card"><div class="icon">📥</div><h4>Downloadable Materials</h4><p>Keep every pattern, guide and reference sheet.</p></div>
+        <div class="include-card"><div class="icon">📝</div><h4>Practical Assignments</h4><p>Apply each module to build your own portfolio pieces.</p></div>
+        <div class="include-card"><div class="icon">💬</div><h4>Interactive Q&amp;A Sessions</h4><p>Direct feedback and guidance throughout the course.</p></div>
+        <div class="include-card"><div class="icon">🎓</div><h4>Certificate of Completion</h4><p>Optional certificate on finishing the full programme.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+FASHION BUSINESS MANAGEMENT PROGRAMME
+============================================================ -->
+<section id="business">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="head-main">
+        <span class="eyebrow">Fashion Business Management Programme</span>
+        <h2>Build a fashion business with confidence.</h2>
+        <p>Transform your passion for fashion into a structured, sustainable, and profitable business — for aspiring entrepreneurs, start-up brands, and established owners looking to strengthen strategy, operations, and growth.</p>
+      </div>
+      <div class="head-aside">
+        <span class="aside-label">Programme At a Glance</span>
+        <div class="head-stat"><b>13</b><span>Core modules</span></div>
+        <div class="head-stat"><b>Online</b><span>Live &amp; self-paced</span></div>
+        <div class="head-stat"><b>Included</b><span>Certificate of completion</span></div>
+      </div>
+    </div>
+
+    <div>
+      <span class="eyebrow">What You'll Learn</span>
+      <div class="learn-grid">
+        <div class="learn-item"><span class="n">01</span><p>Building a Strong Fashion Brand</p></div>
+        <div class="learn-item"><span class="n">02</span><p>Fashion Business Planning</p></div>
+        <div class="learn-item"><span class="n">03</span><p>Brand Identity and Positioning</p></div>
+        <div class="learn-item"><span class="n">04</span><p>Product Development and Collection Planning</p></div>
+        <div class="learn-item"><span class="n">05</span><p>Pricing and Profitability</p></div>
+        <div class="learn-item"><span class="n">06</span><p>Marketing and Customer Acquisition</p></div>
+        <div class="learn-item"><span class="n">07</span><p>Social Media Strategy for Fashion Brands</p></div>
+        <div class="learn-item"><span class="n">08</span><p>Sales and E-commerce Fundamentals</p></div>
+        <div class="learn-item"><span class="n">09</span><p>Sustainable Fashion Business Practices</p></div>
+        <div class="learn-item"><span class="n">10</span><p>Business Systems and Operations</p></div>
+        <div class="learn-item"><span class="n">11</span><p>Scaling and Growing Your Fashion Business</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;">
+      <span class="eyebrow">Who Is This For</span>
+      <div class="who-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="who-item"><p>Aspiring fashion entrepreneurs</p></div>
+        <div class="who-item"><p>Fashion designers</p></div>
+        <div class="who-item"><p>Clothing brand owners</p></div>
+        <div class="who-item"><p>Fashion retailers</p></div>
+        <div class="who-item"><p>Creative business owners</p></div>
+        <div class="who-item"><p>Anyone starting or growing a fashion business</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;">
+      <span class="eyebrow">Programme Format</span>
+      <div class="includes-grid">
+        <div class="include-card"><div class="icon">🎥</div><h4>Live Online Classes</h4><p>Real-time sessions covering each stage of the business.</p></div>
+        <div class="include-card"><div class="icon">📝</div><h4>Practical Assignments</h4><p>Apply each module directly to your own brand as you go.</p></div>
+        <div class="include-card"><div class="icon">📥</div><h4>Downloadable Materials</h4><p>Templates and guides to keep and reuse.</p></div>
+        <div class="include-card"><div class="icon">💬</div><h4>Interactive Q&amp;A Sessions</h4><p>Direct feedback on your specific business questions.</p></div>
+        <div class="include-card"><div class="icon">🎓</div><h4>Certificate of Completion</h4><p>Awarded on completing the full programme.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+TAUGHT BY (shared — applies to both programmes)
+============================================================ -->
+<section class="taught-by">
+  <div class="wrap tb-grid">
+    <div class="tb-photo" aria-hidden="true">
+      <span class="monogram"><span class="o">O</span><span class="s">S</span></span>
+    </div>
+    <div class="tb-copy">
+      <p class="eyebrow">Taught &amp; Led By</p>
+      <p class="name" style="margin-top:10px;">Mrs Alimat Oladipupo Jinadu Sulaimon</p>
+      <p>Founder of Oladiplenty Stylist Consult, and a graduate of the University of Westminster (BA Hons, Economics and Management) with professional technical training in fashion design, pattern cutting, and garment construction. With over seven years as a fashion designer, she has dedicated her career to elegant, high-quality women's fashion — and to helping others build the same skills and confidence in their own work and business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+COMBINED ENROL / GET STARTED
+============================================================ -->
+<section id="enrol">
+  <div class="wrap">
+    <div class="section-head" style="grid-template-columns:1fr; text-align:center; max-width:560px; margin:0 auto 44px;">
+      <span class="eyebrow">Get Started</span>
+      <h2 style="margin-left:auto; margin-right:auto;">Ready to dive in?</h2>
+      <p style="margin-left:auto; margin-right:auto;">Whichever path fits where you are right now.</p>
+    </div>
+
+    <div class="enrol-grid">
+      <div class="enrol-card">
+        <span class="eyebrow">Digital Resources</span>
+        <h3>Grab a guide now</h3>
+        <p>Instant-download guides on business, sustainability, pricing and more — no waiting, no enrolment needed.</p>
+        <a href="#resources" class="btn btn-fill">Browse Resources</a>
+      </div>
+      <div class="enrol-card">
+        <span class="eyebrow">Women's Fashion Masterclass</span>
+        <h3>Learn to design &amp; construct</h3>
+        <p>Message us to discuss upcoming start dates, pricing, and how the programme runs.</p>
+        <a href="https://wa.me/447450207203?text=Hi%2C%20I'd%20like%20to%20enrol%20in%20the%20Women's%20Fashion%20Masterclass." target="_blank" class="btn btn-dark">Chat on WhatsApp</a>
+      </div>
+      <div class="enrol-card">
+        <span class="eyebrow">Business Management Programme</span>
+        <h3>Build the business</h3>
+        <p>Message us to discuss upcoming start dates, pricing, and how the programme runs.</p>
+        <a href="https://wa.me/447450207203?text=Hi%2C%20I'd%20like%20to%20enrol%20in%20the%20Fashion%20Business%20Management%20Programme." target="_blank" class="btn btn-dark">Chat on WhatsApp</a>
+      </div>
+    </div>
+
+    <p class="enrol-note">Prefer email? <a href="mailto:oladiplentystylist@gmail.com?subject=Consulting%20Enquiry">oladiplentystylist@gmail.com</a></p>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/consulting.css' %}">
+<script src="{% static 'js/consulting.js' %}"></script>
+{% endblock %}

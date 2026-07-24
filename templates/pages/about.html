@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Our Story & Meet the Founder — Oladiplenty Stylist Consult{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span>/</span>
+      <span>Our Story</span>
+    </div>
+    <h1>The Story Behind <span class="italic" style="color:var(--magenta);">Oladiplenty</span></h1>
+    <p class="lede">A UK-based fashion brand built on the belief that extraordinary style is for everyone — elegantly crafted, purposefully designed, and deeply personal.</p>
+    <div class="hero-meta">
+      <div><b>7+</b><span>Years of industry experience</span></div>
+      <div><b>UK &amp; EU</b><span>Delivered, made to order</span></div>
+      <div><b>5</b><span>Ready-to-wear collections</span></div>
+      <div><b>1</b><span>Passionate founder</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section style="background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:80px 0;">
+  <div class="wrap">
+    <div class="section-head reveal" style="max-width:600px;">
+      <p class="eyebrow">What Drives Us</p>
+      <h2>Our Mission &amp; Vision</h2>
+      <p>Two guiding statements that shape every collection we design, every course we teach, and every client we serve.</p>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card reveal">
+        <p class="eyebrow">Our Mission</p>
+        <p>To provide high-quality women's fashion, bespoke tailoring, fashion education, and business consultancy that inspire confidence, creativity, and sustainable growth while delivering exceptional value and customer satisfaction.</p>
+      </div>
+      <div class="mv-card reveal">
+        <p class="eyebrow">Our Vision</p>
+        <p>To become a globally recognised fashion and consulting brand, celebrated for elegant designs, professional excellence, innovation, and empowering individuals to thrive in the fashion industry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section id="values">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our Core Values</p>
+      <h2>What guides every decision we make.</h2>
+      <p>These five principles are not aspirational slogans — they are the actual standards we hold ourselves to, in every garment, every lesson, and every client interaction.</p>
+    </div>
+    <div class="values-grid reveal">
+      <div class="value">
+        <span class="mark">Ex</span>
+        <h4>Excellence</h4>
+        <p>We are committed to delivering outstanding quality, precision, and craftsmanship in every product and service.</p>
+      </div>
+      <div class="value">
+        <span class="mark">In</span>
+        <h4>Integrity</h4>
+        <p>We build lasting relationships through honesty, transparency, and professionalism in everything we do.</p>
+      </div>
+      <div class="value">
+        <span class="mark">Cr</span>
+        <h4>Creativity</h4>
+        <p>We embrace innovation and continuously develop ideas that inspire confidence and individuality.</p>
+      </div>
+      <div class="value">
+        <span class="mark">Su</span>
+        <h4>Sustainability</h4>
+        <p>We promote responsible fashion by encouraging conscious choices and sustainable business practices.</p>
+      </div>
+      <div class="value">
+        <span class="mark">Cu</span>
+        <h4>Customer Commitment</h4>
+        <p>Our customers are at the heart of everything we do — exceptional experience, personalised service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET THE FOUNDER -->
+<section class="founder-wrap" id="founder">
+  <div class="wrap">
+    <div class="section-head reveal" style="max-width:600px;">
+      <p class="eyebrow">Meet the Founder</p>
+      <h2>The person behind the brand.</h2>
+      <p>A designer, educator, and entrepreneur with a clear vision — to make elegant, purposeful fashion accessible and to help others build lasting careers in the industry they love.</p>
+    </div>
+    <div class="founder-grid">
+      <div class="reveal">
+        <div class="founder-photo">
+          <img src="{% static 'images/founder.jpeg' %}" alt="Mrs Alimat Oladipupo Jinadu Sulaimon, Founder & Creative Director of Oladiplenty Stylist Consult">
+          <div class="monogram-overlay">
+            <span class="monogram"><span class="o">O</span><span class="s">S</span></span>
+          </div>
+        </div>
+        <div class="founder-badge"><span></span>Available for consultations</div>
+      </div>
+      <div class="reveal">
+        <p class="founder-name">Mrs Alimat Oladipupo Jinadu Sulaimon</p>
+        <p class="founder-role">Founder &amp; Creative Director, Oladiplenty Stylist Consult</p>
+        <div class="founder-body" style="margin-top:28px;">
+          <p>Oladiplenty Stylist Consult was born from a simple but powerful conviction: that the right garment, crafted with care and intention, can transform how a person feels. Elegance and modesty are more than design choices — they are a powerful expression of confidence, identity, and self-worth.</p>
+          <p>As a graduate of the University of Westminster with a BA (Hons) in Economics and Management, I wanted to combine structured business acumen with my creative passion for fashion design, pattern cutting, and garment construction. Over the past seven years of my career, I've focused on translating that mix into clothing that carries both exceptional quality and personal purpose.</p>
+          <p>From ready-to-wear collections that celebrate African heritage and contemporary British style, to bespoke tailoring where we bring your own fabric to life — every garment is built on high craftsmanship and direct collaboration. This same commitment applies to our Fashion Academy and consulting services, where we empower aspiring designers to build successful, sustainable businesses of their own.</p>
+          <p>This brand is a collaborative canvas for creativity and confidence, and I am proud to be building it here in the UK and for clients worldwide.</p>
+        </div>
+        <div class="founder-credentials">
+          <span class="credential-tag">BA (Hons) Economics &amp; Management</span>
+          <span class="credential-tag">University of Westminster</span>
+          <span class="credential-tag">Fashion Design &amp; Pattern Cutting</span>
+          <span class="credential-tag">7+ Years Experience</span>
+          <span class="credential-tag">UK &amp; EU</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER JOURNEY / TIMELINE -->
+<section>
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
+      <div class="reveal">
+        <p class="eyebrow">The Journey</p>
+        <h2 style="font-size:clamp(26px,3vw,36px); margin-top:10px;">Key milestones that shaped the brand.</h2>
+        <p style="margin-top:16px; font-size:15px; line-height:1.7; color:var(--ink-soft);">Every fashion brand has a beginning. Ours started with curiosity, grew through craft, and was shaped by a relentless desire to serve clients with intention and excellence.</p>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <span class="t-year">University</span>
+          <h4>BA (Hons) Economics &amp; Management</h4>
+          <p>Graduated from the University of Westminster, combining business knowledge with a growing passion for fashion entrepreneurship.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-year">Professional Training</span>
+          <h4>Fashion Design &amp; Technical Craft</h4>
+          <p>Completed professional training in fashion design, pattern cutting, and garment construction — building technical precision to match creative vision.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-year">Brand Founded</span>
+          <h4>Oladiplenty Stylist Consult Established</h4>
+          <p>Launched as a women's fashion and styling brand, combining ready-to-wear, bespoke tailoring, and educational services under one roof.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-year">Today</span>
+          <h4>UK-Based Studio with Global Vision</h4>
+          <p>Serving clients across the UK and EU with five collections, a full bespoke service, a growing Fashion Academy, and an expanding consulting practice.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" style="background:var(--card); border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div>
+        <p class="eyebrow">Work With Us</p>
+        <h3>Ready to start your own fashion journey?</h3>
+        <p>Whether you want a bespoke garment, a spot on our academy, or expert business consulting — we'd love to hear from you. Message us on WhatsApp at +44 7450 207203, or leave your email below.</p>
+        <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="{% url 'bespoke' %}" class="btn btn-fill">Start a Custom Order</a>
+          <a href="{% url 'masterclass' %}" class="btn btn-line">Explore Academy</a>
+        </div>
+      </div>
+      <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent ✓';">
+        <input type="email" placeholder="you@email.com" required aria-label="Email address">
+        <button type="submit">Notify Me</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+<script src="{% static 'js/about.js' %}"></script>
+{% endblock %}

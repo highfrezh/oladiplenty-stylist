@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Abaya Collection — Ready to Wear | Oladiplenty Stylist Consult{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/abaya-collection.css' %}">
+
+  <div class="wrap breadcrumb">
+    <a href="{% url 'home' %}">Home</a><span>/</span>
+    <a href="{% url 'shop_collections' %}">Shop Collections</a><span>/</span>
+    <span class="current">Abaya Collection</span>
+  </div>
+
+  <div class="wrap intro">
+    <div>
+      <p class="eyebrow">Abaya Collection · 8 Pieces</p>
+      <h1>Modest fashion, premium craftsmanship</h1>
+      <p>Graceful abayas and modest wear designed with premium fabrics, refined details, and a commitment to both tradition and contemporary style.</p>
+    </div>
+    <span class="count">8 pieces</span>
+  </div>
+
+  <div class="wrap filter-bar">
+    <div class="chip-row" id="sizeFilter">
+      <div class="chip active" data-size="all">All Sizes</div>
+      <div class="chip" data-size="8">UK 8</div>
+      <div class="chip" data-size="10">UK 10</div>
+      <div class="chip" data-size="12">UK 12</div>
+      <div class="chip" data-size="14">UK 14</div>
+      <div class="chip" data-size="16">UK 16</div>
+      <div class="chip" data-size="18">UK 18</div>
+    </div>
+    <select id="sortSelect">
+      <option>Sort: Newest</option>
+      <option>Sort: Price, Low to High</option>
+      <option>Sort: Price, High to Low</option>
+      <option>Sort: Best Rated</option>
+    </select>
+  </div>
+
+  <div class="wrap p-grid" id="productGrid">
+    <a class="p-card" href="#">
+      <div class="p-img pc1"><span class="badge">New</span></div>
+      <h4>The Aisha Classic Abaya</h4>
+      <div class="pp-row"><span class="pp">£145.00</span><span class="stars">★★★★★</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc2"></div>
+      <h4>The Fatima Open Abaya</h4>
+      <div class="pp-row"><span class="pp">£165.00</span><span class="stars">★★★★★</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc3"><span class="badge">Bestseller</span></div>
+      <h4>The Khadijah Kimono Abaya</h4>
+      <div class="pp-row"><span class="pp">£185.00</span><span class="stars">★★★★★</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc4"></div>
+      <h4>The Maryam Modest Dress</h4>
+      <div class="pp-row"><span class="pp">£135.00</span><span class="stars">★★★★☆</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc5"></div>
+      <h4>The Noor Wide-Sleeve Abaya</h4>
+      <div class="pp-row"><span class="pp">£155.00</span><span class="stars">★★★★★</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc6"></div>
+      <h4>The Sara Gold-Trim Abaya</h4>
+      <div class="pp-row"><span class="pp">£195.00</span><span class="stars">★★★★★</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc7"></div>
+      <h4>The Layla Layered Abaya</h4>
+      <div class="pp-row"><span class="pp">£175.00</span><span class="stars">★★★★★</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc8"></div>
+      <h4>The Hana Modest Tunic</h4>
+      <div class="pp-row"><span class="pp">£95.00</span><span class="stars">★★★★☆</span></div>
+    </a>
+  </div>
+
+  <div class="wrap pagination">
+    <button class="page-btn prev" disabled>← Previous</button>
+    <div class="page-numbers">
+      <button class="page-num active">1</button>
+      <button class="page-num">2</button>
+    </div>
+    <button class="page-btn next">Next →</button>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/abaya-collection.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Bag | Oladiplenty Stylist Consult</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --magenta:#D91C73; --magenta-deep:#B4145E;
+    --terracotta:#C17D4E; --terracotta-deep:#A5673E;
+    --ink:#241419; --ink-soft:#4A3540;
+    --blush:#FBF3EF; --blush-deep:#F5E7E0;
+    --card:#FFFFFF; --line:#E9D9CE; --gold:#B08D57; --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{ margin:0; background:var(--blush); color:var(--ink); font-family:'Manrope',sans-serif; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3{ font-family:'Fraunces',serif; font-weight:600; margin:0; letter-spacing:-0.01em; }
+  a{color:inherit; text-decoration:none;}
+  .eyebrow{ text-transform:uppercase; letter-spacing:0.16em; font-size:12px; font-weight:700; color:var(--terracotta-deep); }
+  .wrap{ max-width:1100px; margin:0 auto; padding:0 40px; }
+  @media(max-width:640px){ .wrap{padding:0 20px;} }
+
+  .monogram{position:relative; display:inline-block;}
+  .monogram .o,.monogram .s{ position:absolute; top:0; left:0; font-family:'Fraunces',serif; font-style:italic; font-weight:600; line-height:1; mix-blend-mode:multiply; }
+  .monogram .o{color:var(--magenta);}
+  .monogram .s{color:var(--terracotta); left:0.34em;}
+
+  header{ position:sticky; top:0; z-index:50; background:rgba(251,243,239,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  .nav-inner{ max-width:1240px; margin:0 auto; padding:18px 40px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+  @media(max-width:640px){ .nav-inner{padding:18px 20px;} }
+  .brand{display:flex; align-items:center; gap:14px;}
+  .brand .monogram{font-size:32px; width:0.86em; height:1em;}
+  .brand .word{ font-weight:800; font-size:14px; letter-spacing:0.1em; text-transform:uppercase; line-height:1.2; }
+  .brand .word span{ display:block; font-weight:500; letter-spacing:0.18em; font-size:9px; color:var(--ink-soft); margin-top:2px; text-transform:none; font-style:italic; font-family:'Fraunces',serif; }
+  nav.links{display:flex; gap:32px; margin-left:auto;}
+  nav.links a{ font-size:13.5px; font-weight:600; }
+  .header-actions{display:flex; align-items:center; gap:18px;}
+  .cart-link{position:relative; display:flex; align-items:center; font-size:18px;}
+  .cart-link.active{color:var(--magenta);}
+  .cart-badge{ position:absolute; top:-8px; right:-10px; background:var(--magenta); color:#fff; font-size:10px; font-weight:700; width:17px; height:17px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+  @media(max-width:900px){ nav.links{display:none;} }
+
+  .breadcrumb{ max-width:1240px; margin:0 auto; padding:22px 40px 0; font-size:12.5px; color:var(--ink-soft); }
+  @media(max-width:640px){ .breadcrumb{padding:22px 20px 0;} }
+  .breadcrumb span{margin:0 8px; opacity:0.5;}
+  .breadcrumb a:hover{color:var(--magenta);}
+
+  .intro{padding:30px 0 10px;}
+  .intro h1{font-size:clamp(28px,3.6vw,38px); font-style:italic; font-weight:500;}
+
+  .cart-page{padding:20px 0 100px;}
+  .cart-grid{display:grid; grid-template-columns:1.5fr 1fr; gap:50px; align-items:flex-start;}
+  @media(max-width:860px){ .cart-grid{grid-template-columns:1fr;} }
+
+  .cart-list{margin-top:20px;}
+  .cart-item{ display:grid; grid-template-columns:90px 1fr auto; gap:18px; padding:22px 0; border-bottom:1px solid var(--line); align-items:center; }
+  .ci-img{ width:90px; height:110px; border-radius:var(--radius); position:relative; overflow:hidden; }
+  .ci-img::before{content:''; position:absolute; inset:0;}
+  .ci-name{font-size:15px; font-style:italic; font-weight:500;}
+  .ci-meta{font-size:12px; color:var(--ink-soft); margin-top:6px;}
+  .ci-controls{display:flex; align-items:center; gap:16px; margin-top:12px;}
+  .qty-stepper{display:inline-flex; align-items:center; border:1px solid var(--ink); border-radius:var(--radius);}
+  .qty-stepper button{ width:30px; height:30px; border:none; background:transparent; font-size:14px; cursor:pointer; }
+  .qty-stepper button:hover{background:var(--blush-deep);}
+  .qty-stepper span{width:28px; text-align:center; font-size:13px; font-weight:700;}
+  .ci-remove{ font-size:11.5px; color:var(--ink-soft); text-decoration:underline; text-underline-offset:3px; cursor:pointer; background:none; border:none; font-family:inherit; }
+  .ci-remove:hover{color:var(--magenta);}
+  .ci-price{font-family:'Fraunces',serif; font-size:16px; font-weight:600; text-align:right; white-space:nowrap;}
+
+  .empty-state{ text-align:center; padding:80px 0; }
+  .empty-state .ic{font-size:38px;}
+  .empty-state h3{font-size:20px; font-style:italic; font-weight:500; margin-top:16px;}
+  .empty-state p{font-size:13.5px; color:var(--ink-soft); margin-top:8px;}
+  .empty-state .btn{margin-top:24px;}
+
+  .summary{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:30px; position:sticky; top:96px; }
+  .summary h3{font-size:16px; font-weight:700; letter-spacing:0.02em;}
+  .sum-row{display:flex; justify-content:space-between; font-size:13.5px; margin-top:16px; color:var(--ink-soft);}
+  .sum-row.total{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line); font-weight:700; color:var(--ink); font-size:15px; }
+  .promo-row{display:flex; gap:8px; margin-top:20px;}
+  .promo-row input{flex:1; border:1px solid var(--line); border-radius:var(--radius); padding:11px 12px; font-family:'Manrope'; font-size:12.5px;}
+  .promo-row button{ border:1px solid var(--ink); background:transparent; border-radius:var(--radius); padding:0 16px; font-size:11.5px; font-weight:700; text-transform:uppercase; cursor:pointer; }
+  .promo-row button:hover{background:var(--ink); color:#fff;}
+  .promo-msg{font-size:11.5px; margin-top:8px; color:var(--terracotta-deep); min-height:14px;}
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; font-weight:700; font-size:12.5px; letter-spacing:0.04em; text-transform:uppercase; padding:15px 24px; border-radius:var(--radius); cursor:pointer; border:1px solid transparent; transition:all .2s ease; margin-top:22px; }
+  .btn-fill{background:var(--magenta); color:#fff;}
+  .btn-fill:hover{background:var(--magenta-deep);}
+  .btn-fill:disabled{background:var(--line); color:var(--ink-soft); cursor:not-allowed;}
+  .secure-note{display:flex; align-items:center; gap:8px; margin-top:16px; font-size:11.5px; color:var(--ink-soft); justify-content:center;}
+
+  footer{background:var(--ink); color:rgba(255,255,255,0.7); padding:56px 0 30px; margin-top:40px;}
+  .foot-row{ max-width:1240px; margin:0 auto; padding:0 40px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  @media(max-width:640px){ .foot-row{padding:0 20px;} }
+  .foot-brand{display:flex; align-items:center; gap:12px;}
+  .foot-brand .monogram{font-size:28px; width:0.86em; height:1em;}
+  .foot-brand .monogram .o{color:var(--magenta); mix-blend-mode:normal; opacity:0.95;}
+  .foot-brand .monogram .s{color:var(--terracotta); mix-blend-mode:normal; opacity:0.95;}
+  .foot-links{display:flex; gap:24px; font-size:13px;}
+  .foot-links a:hover{color:#fff;}
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--magenta); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="monogram"><span class="o">O</span><span class="s">S</span></span>
+      <span class="word">Oladiplenty<span>Modesty, Elegance &amp; Diversity</span></span>
+    </a>
+    <nav class="links">
+      <a href="ready-to-wear.html">Ready to Wear</a>
+      <a href="made-to-order.html">Custom Order</a>
+      <a href="index.html#academy">Fashion Academy</a>
+      <a href="digital-resources.html">Consulting</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="cart-link active" href="cart.html" aria-label="View cart">🛍️<span class="cart-badge" id="cartBadge">0</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span>/</span>
+  <span style="color:var(--ink); font-weight:600;">Your Bag</span>
+</div>
+
+<div class="wrap intro">
+  <p class="eyebrow">Your Bag</p>
+  <h1 id="bagHeading">Your bag</h1>
+</div>
+
+<section class="cart-page">
+  <div class="wrap" id="cartContent">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<footer>
+  <div class="foot-row">
+    <a class="foot-brand" href="index.html">
+      <span class="monogram"><span class="o">O</span><span class="s">S</span></span>
+      <span>Oladiplenty Stylist Consult</span>
+    </a>
+    <div class="foot-links">
+      <a href="mailto:oladiplentystylist@gmail.com">oladiplentystylist@gmail.com</a>
+      <a href="https://wa.me/447450207203">WhatsApp +44 7450 207203</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const CART_KEY = 'oladiplenty_cart';
+  const PROMO_KEY = 'oladiplenty_promo';
+
+  function getCart(){
+    try{ return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); }catch(e){ return []; }
+  }
+  function saveCart(cart){
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    updateCartBadge();
+  }
+  function updateCartBadge(){
+    const badge = document.getElementById('cartBadge');
+    if(!badge) return;
+    const count = getCart().reduce((sum,i)=>sum+(i.qty||1),0);
+    badge.textContent = count;
+    badge.style.display = count > 0 ? 'flex' : 'none';
+  }
+
+  function money(n){ return '£' + n.toFixed(2); }
+
+  function render(){
+    const cart = getCart();
+    const content = document.getElementById('cartContent');
+    const heading = document.getElementById('bagHeading');
+    updateCartBadge();
+
+    if(cart.length === 0){
+      heading.textContent = 'Your bag is empty';
+      content.innerHTML = `
+        <div class="empty-state">
+          <div class="ic">🛍️</div>
+          <h3>Nothing in your bag yet</h3>
+          <p>Browse our collections and find something you love.</p>
+          <a href="ready-to-wear.html" class="btn btn-fill" style="width:auto; display:inline-flex;">Shop Ready to Wear</a>
+        </div>`;
+      return;
+    }
+
+    heading.textContent = `Your bag (${cart.reduce((s,i)=>s+i.qty,0)} item${cart.reduce((s,i)=>s+i.qty,0)>1?'s':''})`;
+
+    const itemsHtml = cart.map((item, idx) => `
+      <div class="cart-item">
+        <div class="ci-img" style="background:${item.gradient}"></div>
+        <div>
+          <div class="ci-name">${item.name}</div>
+          <div class="ci-meta">${item.colour} · UK ${item.size}</div>
+          <div class="ci-controls">
+            <div class="qty-stepper">
+              <button aria-label="Decrease quantity" onclick="changeQty(${idx},-1)">–</button>
+              <span>${item.qty}</span>
+              <button aria-label="Increase quantity" onclick="changeQty(${idx},1)">+</button>
+            </div>
+            <button class="ci-remove" onclick="removeItem(${idx})">Remove</button>
+          </div>
+        </div>
+        <div class="ci-price">${money(item.price * item.qty)}</div>
+      </div>
+    `).join('');
+
+    const subtotal = cart.reduce((s,i)=>s + i.price*i.qty, 0);
+    const promo = JSON.parse(localStorage.getItem(PROMO_KEY) || 'null');
+    const discount = promo ? subtotal * promo.rate : 0;
+    const shipping = subtotal > 150 ? 0 : 6.50;
+    const total = subtotal - discount + shipping;
+
+    content.innerHTML = `
+      <div class="cart-grid">
+        <div>
+          <div class="cart-list">${itemsHtml}</div>
+        </div>
+        <div class="summary">
+          <h3>Order Summary</h3>
+          <div class="sum-row"><span>Subtotal</span><span>${money(subtotal)}</span></div>
+          ${promo ? `<div class="sum-row"><span>Promo (${promo.code})</span><span>-${money(discount)}</span></div>` : ''}
+          <div class="sum-row"><span>Shipping</span><span>${shipping === 0 ? 'Free' : money(shipping)}</span></div>
+          <div class="sum-row total"><span>Total</span><span>${money(total)}</span></div>
+          <div class="promo-row">
+            <input type="text" id="promoInput" placeholder="Promo code">
+            <button onclick="applyPromo()">Apply</button>
+          </div>
+          <div class="promo-msg" id="promoMsg">${promo ? 'Code ' + promo.code + ' applied.' : ''}</div>
+          <a href="checkout.html" class="btn btn-fill">Proceed to Checkout</a>
+          <div class="secure-note">🔒 Secure checkout</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function changeQty(idx, dir){
+    const cart = getCart();
+    cart[idx].qty = Math.max(1, cart[idx].qty + dir);
+    saveCart(cart);
+    render();
+  }
+  function removeItem(idx){
+    const cart = getCart();
+    cart.splice(idx,1);
+    saveCart(cart);
+    render();
+  }
+  function applyPromo(){
+    const val = document.getElementById('promoInput').value.trim().toUpperCase();
+    const msg = document.getElementById('promoMsg');
+    if(val === 'OLA10'){
+      localStorage.setItem(PROMO_KEY, JSON.stringify({code:'OLA10', rate:0.10}));
+      msg.textContent = 'Code OLA10 applied — 10% off.';
+      render();
+    } else if(val === ''){
+      msg.textContent = 'Enter a code first.';
+    } else {
+      msg.textContent = 'That code isn\'t valid.';
+    }
+  }
+
+  render();
+</script>
+
+</body>
+</html>

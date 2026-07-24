@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Studio Accessories — Ready to Wear | Oladiplenty Stylist Consult{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/reusable-bags.css' %}">
+
+  <div class="wrap breadcrumb">
+    <a href="{% url 'home' %}">Home</a><span>/</span>
+    <a href="{% url 'shop_collections' %}">Shop Collections</a><span>/</span>
+    <span class="current">Studio Accessories</span>
+  </div>
+
+  <div class="wrap intro">
+    <div>
+      <p class="eyebrow">Studio Accessories · 6 Pieces</p>
+      <h1>Sustainable, stylish, and practical</h1>
+      <p>Handcrafted reusable fabric shopping bags made from premium materials — sustainable accessories designed for everyday living with style and purpose.</p>
+    </div>
+    <span class="count">6 pieces</span>
+  </div>
+
+  <div class="wrap filter-bar">
+    <div class="chip-row" id="sizeFilter">
+      <div class="chip active" data-size="all">All Sizes</div>
+      <div class="chip" data-size="small">Small</div>
+      <div class="chip" data-size="medium">Medium</div>
+      <div class="chip" data-size="large">Large</div>
+    </div>
+    <select id="sortSelect">
+      <option>Sort: Newest</option>
+      <option>Sort: Price, Low to High</option>
+      <option>Sort: Price, High to Low</option>
+      <option>Sort: Best Rated</option>
+    </select>
+  </div>
+
+  <div class="wrap p-grid" id="productGrid">
+    <a class="p-card" href="#">
+      <div class="p-img pc1"><span class="badge">New</span></div>
+      <h4>The Lagos Market Tote</h4>
+      <div class="pp-row"><span class="pp">£35.00</span><span class="stars">★★★★★</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc2"></div>
+      <h4>The Abuja Shopper Bag</h4>
+      <div class="pp-row"><span class="pp">£40.00</span><span class="stars">★★★★★</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc3"><span class="badge">Bestseller</span></div>
+      <h4>The Kano Foldable Bag</h4>
+      <div class="pp-row"><span class="pp">£28.00</span><span class="stars">★★★★★</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc4"></div>
+      <h4>The Ibadan Produce Bag</h4>
+      <div class="pp-row"><span class="pp">£32.00</span><span class="stars">★★★★☆</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc5"></div>
+      <h4>The Benin Market Basket</h4>
+      <div class="pp-row"><span class="pp">£38.00</span><span class="stars">★★★★★</span></div>
+    </a>
+    <a class="p-card" href="#">
+      <div class="p-img pc6"></div>
+      <h4>The Port Harcourt Lunch Bag</h4>
+      <div class="pp-row"><span class="pp">£25.00</span><span class="stars">★★★★★</span></div>
+    </a>
+  </div>
+
+  <div class="wrap pagination">
+    <button class="page-btn prev" disabled>← Previous</button>
+    <div class="page-numbers">
+      <button class="page-num active">1</button>
+    </div>
+    <button class="page-btn next" disabled>Next →</button>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/reusable-bags.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,672 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Consulting — Fashion Academy & Business Resources | Oladiplenty Stylist Consult{% endblock %}
+
+{% block content %}
+<!-- ============================================================
+  BREADCRUMB
+  ============================================================ -->
+<div class="max-w-[1280px] mx-auto px-6 md:px-10 pt-6 pb-0">
+  <nav class="text-[12.5px] text-ink-soft/70" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}" class="hover:text-magenta transition-colors">Home</a>
+    <span class="mx-2 opacity-40">/</span>
+    <span class="font-semibold text-ink">Consulting</span>
+  </nav>
+</div>
+
+<!-- ============================================================
+  HERO / INTRO
+  ============================================================ -->
+<section class="pt-12 pb-8 md:pt-16 md:pb-12">
+  <div class="max-w-[1280px] mx-auto px-6 md:px-10">
+    <div class="max-w-3xl">
+      <span
+        class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep mb-3 w-full">Fashion
+        Consulting</span>
+      <h1 class="text-[clamp(34px,5vw,52px)] font-serif font-light italic leading-[1.08]">Learn, launch, and grow — with
+        guidance built from <span class="not-italic text-magenta">real experience</span>.</h1>
+      <p class="text-[16px] md:text-[17px] text-ink-soft leading-relaxed mt-5 max-w-2xl">Everything under Consulting in
+        one place: downloadable business &amp; sustainability guides you can use today, a full Women's Fashion
+        Masterclass to build your design skills, and a Fashion Business Management Programme to build the business
+        around them.</p>
+
+      <div class="flex flex-wrap gap-3 mt-8">
+        <a href="#resources"
+          class="inline-flex items-center gap-2 font-bold text-[12px] tracking-[0.06em] uppercase px-6 py-3 rounded bg-magenta text-white border border-magenta transition-all duration-300 hover:bg-magenta-deep hover:border-magenta-deep hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(217,28,115,0.2)]">Explore
+          Resources</a>
+        <a href="#masterclass"
+          class="inline-flex items-center gap-2 font-bold text-[12px] tracking-[0.06em] uppercase px-6 py-3 rounded border border-ink text-ink transition-all duration-300 hover:bg-ink hover:text-white hover:-translate-y-0.5">View
+          Masterclass</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SUBNAV — Sticky Jump Links
+  ============================================================ -->
+<div
+  class="subnav-wrap sticky top-[65px] z-40 bg-blush/95 backdrop-blur-[12px] border-b border-line transition-shadow duration-300"
+  id="subnavWrap">
+  <div class="max-w-[1280px] mx-auto px-6 md:px-10 py-4">
+    <nav class="flex gap-1.5 flex-wrap" id="subnavTabs" aria-label="Section navigation">
+      <a href="#resources" data-target="resources"
+        class="subnav-link text-[12.5px] font-medium text-ink-soft/80 px-4 py-2 rounded-full hover:text-ink transition-colors active">Digital
+        Resources</a>
+      <a href="#masterclass" data-target="masterclass"
+        class="subnav-link text-[12.5px] font-medium text-ink-soft/80 px-4 py-2 rounded-full hover:text-ink transition-colors">Fashion
+        Masterclass</a>
+      <a href="#business" data-target="business"
+        class="subnav-link text-[12.5px] font-medium text-ink-soft/80 px-4 py-2 rounded-full hover:text-ink transition-colors">Business
+        Programme</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============================================================
+  SECTION: DIGITAL RESOURCES
+  ============================================================ -->
+<section id="resources" class="py-16 md:py-22 bg-card border-t border-b border-line">
+  <div class="max-w-[1280px] mx-auto px-6 md:px-10">
+    <div class="reveal">
+      <span
+        class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep max-w-2xl">Guidance
+        to Business, Fashion &amp; Sustainability</span>
+      <h2 class="text-[clamp(26px,3.2vw,38px)] font-serif font-light italic mt-3 max-w-2xl">Practical resources to
+        support your fashion journey.</h2>
+      <p class="text-[15px] text-ink-soft leading-relaxed mt-3 max-w-xl">Fashion business guides, sustainability guides,
+        business templates, pricing guides, e-books and practical checklists — instantly downloadable after purchase.
+      </p>
+      <div class="flex flex-wrap gap-2.5 mt-5">
+        <span
+          class="text-[11px] font-bold tracking-[0.06em] uppercase bg-blush border border-line rounded-full px-4 py-1.5">Instant
+          Download</span>
+        <span
+          class="text-[11px] font-bold tracking-[0.06em] uppercase bg-blush border border-line rounded-full px-4 py-1.5">PDF
+          Format</span>
+        <span
+          class="text-[11px] font-bold tracking-[0.06em] uppercase bg-blush border border-line rounded-full px-4 py-1.5">Secure
+          Checkout</span>
+      </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="flex flex-wrap gap-2 mt-10 pb-0" id="filterTabs">
+      <button
+        class="filter-tab active text-[12px] font-semibold px-5 py-2 rounded-full border border-line bg-blush transition-all duration-200"
+        data-cat="all">All Resources</button>
+      <button
+        class="filter-tab text-[12px] font-semibold px-5 py-2 rounded-full border border-line bg-blush transition-all duration-200"
+        data-cat="business">Business Guides</button>
+      <button
+        class="filter-tab text-[12px] font-semibold px-5 py-2 rounded-full border border-line bg-blush transition-all duration-200"
+        data-cat="sustainability">Sustainability</button>
+      <button
+        class="filter-tab text-[12px] font-semibold px-5 py-2 rounded-full border border-line bg-blush transition-all duration-200"
+        data-cat="templates">Templates</button>
+      <button
+        class="filter-tab text-[12px] font-semibold px-5 py-2 rounded-full border border-line bg-blush transition-all duration-200"
+        data-cat="pricing">Pricing</button>
+      <button
+        class="filter-tab text-[12px] font-semibold px-5 py-2 rounded-full border border-line bg-blush transition-all duration-200"
+        data-cat="ebooks">E-books</button>
+      <button
+        class="filter-tab text-[12px] font-semibold px-5 py-2 rounded-full border border-line bg-blush transition-all duration-200"
+        data-cat="checklists">Checklists</button>
+    </div>
+
+    <!-- Resource grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8" id="shopGrid">
+      <!-- Card 1 -->
+      <div class="r-card bg-card border border-line rounded-xl overflow-hidden flex flex-col" data-cat="business">
+        <div class="r-cover cov-1 aspect-[5/4] flex flex-col justify-end p-6 text-white">
+          <span class="text-[10px] font-bold tracking-[0.12em] uppercase opacity-80">Business Guide</span>
+          <span class="font-serif italic text-xl font-medium leading-tight mt-1">Fashion Business Starter Guide</span>
+          <span class="corner-badge">PDF</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-[10px] font-bold tracking-[0.1em] uppercase text-terracotta-deep">Business Guides</span>
+          <h3 class="font-serif italic font-medium text-[17px] mt-2 leading-tight">Fashion Business Starter Guide</h3>
+          <p class="text-[13px] text-ink-soft leading-relaxed mt-2 flex-1">A step-by-step introduction to registering,
+            structuring, and launching your own fashion label from the ground up.</p>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <span class="font-serif text-xl font-semibold">£15.00</span>
+            <button
+              class="r-buy text-[11px] font-bold tracking-[0.06em] uppercase px-5 py-2.5 rounded bg-ink text-white transition-all duration-300 hover:bg-magenta hover:-translate-y-0.5"
+              onclick="buyGuide(this)">Buy &amp; Download</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="r-card bg-card border border-line rounded-xl overflow-hidden flex flex-col" data-cat="sustainability">
+        <div class="r-cover cov-2 aspect-[5/4] flex flex-col justify-end p-6 text-white">
+          <span class="text-[10px] font-bold tracking-[0.12em] uppercase opacity-80">Sustainability</span>
+          <span class="font-serif italic text-xl font-medium leading-tight mt-1">The Sustainable Fashion Guide</span>
+          <span class="corner-badge">PDF</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-[10px] font-bold tracking-[0.1em] uppercase text-terracotta-deep">Sustainability</span>
+          <h3 class="font-serif italic font-medium text-[17px] mt-2 leading-tight">The Sustainable Fashion Guide</h3>
+          <p class="text-[13px] text-ink-soft leading-relaxed mt-2 flex-1">Practical ways to reduce fabric waste, source
+            responsibly, and build sustainability into your brand's everyday operations.</p>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <span class="font-serif text-xl font-semibold">£12.00</span>
+            <button
+              class="r-buy text-[11px] font-bold tracking-[0.06em] uppercase px-5 py-2.5 rounded bg-ink text-white transition-all duration-300 hover:bg-magenta hover:-translate-y-0.5"
+              onclick="buyGuide(this)">Buy &amp; Download</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="r-card bg-card border border-line rounded-xl overflow-hidden flex flex-col" data-cat="pricing">
+        <div class="r-cover cov-3 aspect-[5/4] flex flex-col justify-end p-6 text-white">
+          <span class="text-[10px] font-bold tracking-[0.12em] uppercase opacity-80">Pricing Guide</span>
+          <span class="font-serif italic text-xl font-medium leading-tight mt-1">Pricing Your Garments With
+            Confidence</span>
+          <span class="corner-badge">PDF</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-[10px] font-bold tracking-[0.1em] uppercase text-terracotta-deep">Pricing</span>
+          <h3 class="font-serif italic font-medium text-[17px] mt-2 leading-tight">Pricing Your Garments With Confidence
+          </h3>
+          <p class="text-[13px] text-ink-soft leading-relaxed mt-2 flex-1">A clear framework for costing materials and
+            labour, and pricing ready-to-wear and bespoke pieces profitably.</p>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <span class="font-serif text-xl font-semibold">£10.00</span>
+            <button
+              class="r-buy text-[11px] font-bold tracking-[0.06em] uppercase px-5 py-2.5 rounded bg-ink text-white transition-all duration-300 hover:bg-magenta hover:-translate-y-0.5"
+              onclick="buyGuide(this)">Buy &amp; Download</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="r-card bg-card border border-line rounded-xl overflow-hidden flex flex-col" data-cat="templates">
+        <div class="r-cover cov-4 aspect-[5/4] flex flex-col justify-end p-6 text-white">
+          <span class="text-[10px] font-bold tracking-[0.12em] uppercase opacity-80">Templates</span>
+          <span class="font-serif italic text-xl font-medium leading-tight mt-1">Fashion Brand Templates Pack</span>
+          <span class="corner-badge">PDF</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-[10px] font-bold tracking-[0.1em] uppercase text-terracotta-deep">Templates</span>
+          <h3 class="font-serif italic font-medium text-[17px] mt-2 leading-tight">Fashion Brand Templates Pack</h3>
+          <p class="text-[13px] text-ink-soft leading-relaxed mt-2 flex-1">Editable invoice, order form, measurement
+            sheet and social media planner templates, ready to brand as your own.</p>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <span class="font-serif text-xl font-semibold">£18.00</span>
+            <button
+              class="r-buy text-[11px] font-bold tracking-[0.06em] uppercase px-5 py-2.5 rounded bg-ink text-white transition-all duration-300 hover:bg-magenta hover:-translate-y-0.5"
+              onclick="buyGuide(this)">Buy &amp; Download</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="r-card bg-card border border-line rounded-xl overflow-hidden flex flex-col" data-cat="ebooks">
+        <div class="r-cover cov-5 aspect-[5/4] flex flex-col justify-end p-6 text-white">
+          <span class="text-[10px] font-bold tracking-[0.12em] uppercase opacity-80">E-book</span>
+          <span class="font-serif italic text-xl font-medium leading-tight mt-1">The Modest Fashion E-Book</span>
+          <span class="corner-badge">PDF</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-[10px] font-bold tracking-[0.1em] uppercase text-terracotta-deep">E-books</span>
+          <h3 class="font-serif italic font-medium text-[17px] mt-2 leading-tight">The Modest Fashion E-Book</h3>
+          <p class="text-[13px] text-ink-soft leading-relaxed mt-2 flex-1">An illustrated guide to styling modest
+            silhouettes across corporate, casual and occasion wear.</p>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <span class="font-serif text-xl font-semibold">£14.00</span>
+            <button
+              class="r-buy text-[11px] font-bold tracking-[0.06em] uppercase px-5 py-2.5 rounded bg-ink text-white transition-all duration-300 hover:bg-magenta hover:-translate-y-0.5"
+              onclick="buyGuide(this)">Buy &amp; Download</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="r-card bg-card border border-line rounded-xl overflow-hidden flex flex-col" data-cat="checklists">
+        <div class="r-cover cov-6 aspect-[5/4] flex flex-col justify-end p-6 text-white">
+          <span class="text-[10px] font-bold tracking-[0.12em] uppercase opacity-80">Checklist</span>
+          <span class="font-serif italic text-xl font-medium leading-tight mt-1">Fashion Business Launch
+            Checklist</span>
+          <span class="corner-badge">PDF</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-[10px] font-bold tracking-[0.1em] uppercase text-terracotta-deep">Checklists</span>
+          <h3 class="font-serif italic font-medium text-[17px] mt-2 leading-tight">Fashion Business Launch Checklist
+          </h3>
+          <p class="text-[13px] text-ink-soft leading-relaxed mt-2 flex-1">Every task to tick off before your first
+            collection goes live — from sourcing to socials to soft launch.</p>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <span class="font-serif text-xl font-semibold">£8.00</span>
+            <button
+              class="r-buy text-[11px] font-bold tracking-[0.06em] uppercase px-5 py-2.5 rounded bg-ink text-white transition-all duration-300 hover:bg-magenta hover:-translate-y-0.5"
+              onclick="buyGuide(this)">Buy &amp; Download</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="r-card bg-card border border-line rounded-xl overflow-hidden flex flex-col" data-cat="business">
+        <div class="r-cover cov-7 aspect-[5/4] flex flex-col justify-end p-6 text-white">
+          <span class="text-[10px] font-bold tracking-[0.12em] uppercase opacity-80">Business Guide</span>
+          <span class="font-serif italic text-xl font-medium leading-tight mt-1">Fabric &amp; Sourcing Guide</span>
+          <span class="corner-badge">PDF</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-[10px] font-bold tracking-[0.1em] uppercase text-terracotta-deep">Business Guides</span>
+          <h3 class="font-serif italic font-medium text-[17px] mt-2 leading-tight">Fabric &amp; Sourcing Guide</h3>
+          <p class="text-[13px] text-ink-soft leading-relaxed mt-2 flex-1">Where and how to source quality fabric — for
+            African prints, corporate wear textiles, and modest wear fabrics alike.</p>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <span class="font-serif text-xl font-semibold">£12.00</span>
+            <button
+              class="r-buy text-[11px] font-bold tracking-[0.06em] uppercase px-5 py-2.5 rounded bg-ink text-white transition-all duration-300 hover:bg-magenta hover:-translate-y-0.5"
+              onclick="buyGuide(this)">Buy &amp; Download</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14 bg-ink text-white rounded-xl p-8 md:p-10">
+      <div class="flex flex-col">
+        <span class="font-serif italic text-2xl text-terracotta font-semibold">01</span>
+        <h4 class="font-bold text-[15px] mt-3">Choose a Guide</h4>
+        <p class="text-[13px] text-white/60 leading-relaxed mt-1.5">Browse the resources above and pick the one that
+          fits where your business is right now.</p>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-serif italic text-2xl text-terracotta font-semibold">02</span>
+        <h4 class="font-bold text-[15px] mt-3">Secure Checkout</h4>
+        <p class="text-[13px] text-white/60 leading-relaxed mt-1.5">Pay securely by card — no account required.</p>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-serif italic text-2xl text-terracotta font-semibold">03</span>
+        <h4 class="font-bold text-[15px] mt-3">Instant Download</h4>
+        <p class="text-[13px] text-white/60 leading-relaxed mt-1.5">Your PDF downloads straight to your device — ready
+          to use immediately.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION: WOMEN'S FASHION MASTERCLASS
+  ============================================================ -->
+<section id="masterclass" class="py-16 md:py-22">
+  <div class="max-w-[1280px] mx-auto px-6 md:px-10">
+    <div class="reveal">
+      <span class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep">Women's
+        Fashion Masterclass</span>
+      <h2 class="text-[clamp(26px,3.2vw,38px)] font-serif font-light italic mt-3 max-w-2xl">Master the art of women's
+        fashion design.</h2>
+      <p class="text-[15px] text-ink-soft leading-relaxed mt-3 max-w-xl">Whether you're taking your first step into
+        fashion or refining your skills, this masterclass builds practical knowledge, professional technique, and the
+        confidence to create well-crafted garments.</p>
+    </div>
+
+    <!-- Meta row -->
+    <div class="flex flex-wrap gap-8 mt-8 pb-8 border-b border-line">
+      <div><span class="font-serif text-2xl font-semibold block">10</span><span
+          class="text-[12px] text-ink-soft tracking-[0.02em]">Core modules</span></div>
+      <div><span class="font-serif text-2xl font-semibold block">Online</span><span
+          class="text-[12px] text-ink-soft tracking-[0.02em]">Live &amp; self-paced</span></div>
+      <div><span class="font-serif text-2xl font-semibold block">Optional</span><span
+          class="text-[12px] text-ink-soft tracking-[0.02em]">Certificate of completion</span></div>
+    </div>
+
+    <!-- What you'll learn -->
+    <div class="mt-10">
+      <span class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep mb-6">What
+        You'll Learn</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-1">
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60">
+          <span class="n">01</span>
+          <p class="text-[14px] font-semibold">Introduction to Fashion Design</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60">
+          <span class="n">02</span>
+          <p class="text-[14px] font-semibold">Understanding Body Measurements</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60">
+          <span class="n">03</span>
+          <p class="text-[14px] font-semibold">Fabric Selection and Textile Knowledge</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60">
+          <span class="n">04</span>
+          <p class="text-[14px] font-semibold">Pattern Drafting and Pattern Cutting</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60">
+          <span class="n">05</span>
+          <p class="text-[14px] font-semibold">Garment Construction Techniques</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60">
+          <span class="n">06</span>
+          <p class="text-[14px] font-semibold">Sewing and Professional Finishing</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60">
+          <span class="n">07</span>
+          <p class="text-[14px] font-semibold">Women's Wear Design (Corporate, Casual, Ankara &amp; Abaya)</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60">
+          <span class="n">08</span>
+          <p class="text-[14px] font-semibold">Fashion Illustration Basics</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60">
+          <span class="n">09</span>
+          <p class="text-[14px] font-semibold">Quality Control and Garment Fitting</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60">
+          <span class="n">10</span>
+          <p class="text-[14px] font-semibold">Building Your Fashion Portfolio</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Who is this for -->
+    <div class="mt-14">
+      <span class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep mb-6">Who
+        Is This For</span>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-px bg-line border border-line rounded-lg overflow-hidden">
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Beginners with no prior experience</p>
+        </div>
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Aspiring Fashion Designers</p>
+        </div>
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Sewing Enthusiasts</p>
+        </div>
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Fashion Entrepreneurs</p>
+        </div>
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Anyone developing professional design skills</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Programme includes -->
+    <div class="mt-14">
+      <span
+        class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep mb-6">Programme
+        Includes</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">🎥</span>
+          <h4 class="font-bold text-[14px] mt-3">Live Online Classes</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Real-time sessions where you can ask questions
+            as you learn.</p>
+        </div>
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">✂️</span>
+          <h4 class="font-bold text-[14px] mt-3">Step-by-Step Demonstrations</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Practical, hands-on walkthroughs of every
+            technique.</p>
+        </div>
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">📥</span>
+          <h4 class="font-bold text-[14px] mt-3">Downloadable Materials</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Keep every pattern, guide and reference sheet.
+          </p>
+        </div>
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">📝</span>
+          <h4 class="font-bold text-[14px] mt-3">Practical Assignments</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Apply each module to build your own portfolio
+            pieces.</p>
+        </div>
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">💬</span>
+          <h4 class="font-bold text-[14px] mt-3">Interactive Q&amp;A Sessions</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Direct feedback and guidance throughout the
+            course.</p>
+        </div>
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">🎓</span>
+          <h4 class="font-bold text-[14px] mt-3">Certificate of Completion</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Optional certificate on finishing the full
+            programme.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION: FASHION BUSINESS MANAGEMENT PROGRAMME
+  ============================================================ -->
+<section id="business" class="py-16 md:py-22 bg-card border-t border-b border-line">
+  <div class="max-w-[1280px] mx-auto px-6 md:px-10">
+    <div class="reveal">
+      <span class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep">Fashion
+        Business Management Programme</span>
+      <h2 class="text-[clamp(26px,3.2vw,38px)] font-serif font-light italic mt-3 max-w-2xl">Build a fashion business
+        with confidence.</h2>
+      <p class="text-[15px] text-ink-soft leading-relaxed mt-3 max-w-xl">Transform your passion for fashion into a
+        structured, sustainable, and profitable business — for aspiring entrepreneurs, start-up brands, and established
+        owners looking to strengthen strategy, operations, and growth.</p>
+    </div>
+
+    <!-- Meta row -->
+    <div class="flex flex-wrap gap-8 mt-8 pb-8 border-b border-line">
+      <div><span class="font-serif text-2xl font-semibold block">13</span><span
+          class="text-[12px] text-ink-soft tracking-[0.02em]">Core modules</span></div>
+      <div><span class="font-serif text-2xl font-semibold block">Online</span><span
+          class="text-[12px] text-ink-soft tracking-[0.02em]">Live &amp; self-paced</span></div>
+      <div><span class="font-serif text-2xl font-semibold block">Included</span><span
+          class="text-[12px] text-ink-soft tracking-[0.02em]">Certificate of completion</span></div>
+    </div>
+
+    <!-- What you'll learn -->
+    <div class="mt-10">
+      <span class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep mb-6">What
+        You'll Learn</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-1">
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">01</span>
+          <p class="text-[14px] font-semibold">Building a Strong Fashion Brand</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">02</span>
+          <p class="text-[14px] font-semibold">Fashion Business Planning</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">03</span>
+          <p class="text-[14px] font-semibold">Brand Identity and Positioning</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">04</span>
+          <p class="text-[14px] font-semibold">Product Development and Collection Planning</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">05</span>
+          <p class="text-[14px] font-semibold">Pricing and Profitability</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">06</span>
+          <p class="text-[14px] font-semibold">Marketing and Customer Acquisition</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">07</span>
+          <p class="text-[14px] font-semibold">Social Media Strategy for Fashion Brands</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">08</span>
+          <p class="text-[14px] font-semibold">Sales and E-commerce Fundamentals</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">09</span>
+          <p class="text-[14px] font-semibold">Sustainable Fashion Business Practices</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">10</span>
+          <p class="text-[14px] font-semibold">Business Systems and Operations</p>
+        </div>
+        <div class="learn-item flex gap-4 items-start py-3 border-b border-line/60"><span class="n">11</span>
+          <p class="text-[14px] font-semibold">Scaling and Growing Your Fashion Business</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Who is this for -->
+    <div class="mt-14">
+      <span class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep mb-6">Who
+        Is This For</span>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-px bg-line border border-line rounded-lg overflow-hidden">
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Aspiring fashion entrepreneurs</p>
+        </div>
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Fashion designers</p>
+        </div>
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Clothing brand owners</p>
+        </div>
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Fashion retailers</p>
+        </div>
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Creative business owners</p>
+        </div>
+        <div class="bg-card p-5 text-center">
+          <p class="text-[13px] font-semibold leading-snug">Anyone starting or growing a fashion business</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Programme format -->
+    <div class="mt-14">
+      <span
+        class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep mb-6">Programme
+        Format</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">🎥</span>
+          <h4 class="font-bold text-[14px] mt-3">Live Online Classes</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Real-time sessions covering each stage of the
+            business.</p>
+        </div>
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">📝</span>
+          <h4 class="font-bold text-[14px] mt-3">Practical Assignments</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Apply each module directly to your own brand as
+            you go.</p>
+        </div>
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">📥</span>
+          <h4 class="font-bold text-[14px] mt-3">Downloadable Materials</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Templates and guides to keep and reuse.</p>
+        </div>
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">💬</span>
+          <h4 class="font-bold text-[14px] mt-3">Interactive Q&amp;A Sessions</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Direct feedback on your specific business
+            questions.</p>
+        </div>
+        <div
+          class="include-card bg-ink text-white rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(36,20,25,0.15)]">
+          <span class="text-2xl">🎓</span>
+          <h4 class="font-bold text-[14px] mt-3">Certificate of Completion</h4>
+          <p class="text-[12.5px] text-white/60 leading-relaxed mt-1.5">Awarded on completing the full programme.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION: TAUGHT BY
+  ============================================================ -->
+<section class="py-16 md:py-20 bg-blush-deep">
+  <div class="max-w-[1280px] mx-auto px-6 md:px-10">
+    <div class="flex flex-col md:flex-row gap-10 md:gap-14 items-center">
+      <div class="flex-shrink-0">
+        <div
+          class="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-card to-terracotta/30 border border-line flex items-center justify-center overflow-hidden">
+          <span class="monogram monogram-xl opacity-80"><span class="o">O</span><span class="s">S</span></span>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep">Taught
+          &amp; Led By</span>
+        <p class="font-serif italic text-xl md:text-2xl font-medium mt-2">Mrs Alimat Oladipupo Jinadu Sulaimon</p>
+        <p class="text-[14px] text-ink-soft leading-relaxed mt-3 max-w-xl">Founder of Oladiplenty Stylist Consult, and a
+          graduate of the University of Westminster (BA Hons, Economics and Management) with professional technical
+          training in fashion design, pattern cutting, and garment construction. With over seven years as a fashion
+          designer, she has dedicated her career to elegant, high-quality women's fashion — and to helping others build
+          the same skills and confidence in their own work and business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION: ENROL / GET STARTED
+  ============================================================ -->
+<section id="enrol" class="py-16 md:py-22">
+  <div class="max-w-[1280px] mx-auto px-6 md:px-10">
+    <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+      <span class="eyebrow inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-deep">Get
+        Started</span>
+      <h2 class="text-[clamp(28px,3.4vw,40px)] font-serif font-light italic mt-3">Ready to dive in?</h2>
+      <p class="text-[15px] text-ink-soft leading-relaxed mt-3">Whichever path fits where you are right now.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Card 1: Resources -->
+      <div
+        class="enrol-card bg-ink text-white rounded-xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_-16px_rgba(36,20,25,0.2)]">
+        <span class="eyebrow text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-light">Digital
+          Resources</span>
+        <h3 class="font-serif italic text-xl font-medium text-white mt-3">Grab a guide now</h3>
+        <p class="text-[13px] text-white/60 leading-relaxed mt-2 flex-1">Instant-download guides on business,
+          sustainability, pricing and more — no waiting, no enrolment needed.</p>
+        <a href="#resources"
+          class="inline-flex items-center justify-center gap-2 font-bold text-[11.5px] tracking-[0.08em] uppercase px-6 py-3 rounded bg-magenta text-white border border-magenta transition-all duration-300 hover:bg-magenta-deep hover:border-magenta-deep hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(217,28,115,0.25)] mt-6">Browse
+          Resources</a>
+      </div>
+
+      <!-- Card 2: Masterclass -->
+      <div
+        class="enrol-card bg-ink text-white rounded-xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_-16px_rgba(36,20,25,0.2)]">
+        <span class="eyebrow text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-light">Women's Fashion
+          Masterclass</span>
+        <h3 class="font-serif italic text-xl font-medium text-white mt-3">Learn to design &amp; construct</h3>
+        <p class="text-[13px] text-white/60 leading-relaxed mt-2 flex-1">Message us to discuss upcoming start dates,
+          pricing, and how the programme runs.</p>
+        <a href="https://wa.me/447450207203?text=Hi%2C%20I'd%20like%20to%20enrol%20in%20the%20Women's%20Fashion%20Masterclass."
+          target="_blank"
+          class="inline-flex items-center justify-center gap-2 font-bold text-[11.5px] tracking-[0.08em] uppercase px-6 py-3 rounded border border-white/30 text-white transition-all duration-300 hover:bg-white hover:text-ink hover:border-white hover:-translate-y-0.5 mt-6">Chat
+          on WhatsApp</a>
+      </div>
+
+      <!-- Card 3: Business Programme -->
+      <div
+        class="enrol-card bg-ink text-white rounded-xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_-16px_rgba(36,20,25,0.2)]">
+        <span class="eyebrow text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-light">Business Management
+          Programme</span>
+        <h3 class="font-serif italic text-xl font-medium text-white mt-3">Build the business</h3>
+        <p class="text-[13px] text-white/60 leading-relaxed mt-2 flex-1">Message us to discuss upcoming start dates,
+          pricing, and how the programme runs.</p>
+        <a href="https://wa.me/447450207203?text=Hi%2C%20I'd%20like%20to%20enrol%20in%20the%20Fashion%20Business%20Management%20Programme."
+          target="_blank"
+          class="inline-flex items-center justify-center gap-2 font-bold text-[11.5px] tracking-[0.08em] uppercase px-6 py-3 rounded border border-white/30 text-white transition-all duration-300 hover:bg-white hover:text-ink hover:border-white hover:-translate-y-0.5 mt-6">Chat
+          on WhatsApp</a>
+      </div>
+    </div>
+
+    <p class="text-center text-[13px] text-ink-soft mt-8">Prefer email? <a
+        href="mailto:oladiplentystylist@gmail.com?subject=Consulting%20Enquiry"
+        class="text-magenta font-semibold hover:underline transition-colors">oladiplentystylist@gmail.com</a></p>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/consulting.css' %}">
+<script src="{% static 'js/consulting.js' %}"></script>
+{% endblock %}

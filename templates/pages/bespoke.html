@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Bespoke — Bring Your Own Fabric | Oladiplenty Stylist Consult{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+  <a href="{% url 'home' %}">Home</a><span>/</span>
+  <span class="current">Bespoke</span>
+</div>
+
+<div class="wrap intro">
+  <p class="eyebrow">Bespoke</p>
+  <h1>Bring Your Own Fabric. We'll Bring Your Vision to Life.</h1>
+  <p>Already have fabric you love? Choose a style from our sample gallery, tell us about your fabric, and we'll turn it into a professionally tailored garment — five steps, start to finish.</p>
+
+  <div class="cat-tabs" id="catTabs">
+    <div class="cat-tab active" data-cat="corporate">Corporate Wears</div>
+    <div class="cat-tab" data-cat="allseason">All Season Outfits</div>
+    <div class="cat-tab" data-cat="prints">African Prints</div>
+    <div class="cat-tab" data-cat="abaya">Abaya Wears</div>
+  </div>
+</div>
+
+<section class="stepper">
+  <div class="wrap">
+
+    <!-- STEP 1 -->
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Choose Your Style Reference</h3>
+        <p class="help">Browse samples from the collection selected above. Choose the front and back style you'd like us to work from — you can add notes on what to change in Step 3.</p>
+        <div class="sample-grid" id="sampleGrid">
+          <div class="sample-card s1" data-style="Style 01"><div class="imgs"><div></div><div></div></div><div class="lbl"><span class="tick">✓</span> Style 01</div></div>
+          <div class="sample-card s2" data-style="Style 02"><div class="imgs"><div></div><div></div></div><div class="lbl"><span class="tick">✓</span> Style 02</div></div>
+          <div class="sample-card s3" data-style="Style 03"><div class="imgs"><div></div><div></div></div><div class="lbl"><span class="tick">✓</span> Style 03</div></div>
+          <div class="sample-card s4" data-style="Style 04"><div class="imgs"><div></div><div></div></div><div class="lbl"><span class="tick">✓</span> Style 04</div></div>
+          <div class="sample-card s5" data-style="Style 05"><div class="imgs"><div></div><div></div></div><div class="lbl"><span class="tick">✓</span> Style 05</div></div>
+          <div class="sample-card s6" data-style="Style 06"><div class="imgs"><div></div><div></div></div><div class="lbl"><span class="tick">✓</span> Style 06</div></div>
+        </div>
+        <div class="selected-note" id="selectedNote">No style selected yet — tap a sample above.</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Upload Your Fabric</h3>
+        <p class="help">Add a photo of the fabric you'd like us to use, then describe it below.</p>
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload fabric photo">
+          <div class="icon">📎</div>
+          <p><strong>Click to upload</strong> or drag a photo here</p>
+          <p class="small">JPG or PNG, up to 10MB</p>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" multiple style="display:none;">
+        <div class="file-chips" id="fileChips"></div>
+        <div class="field">
+          <label for="fabricDesc">Describe your fabric — colour, pattern, texture &amp; yardage</label>
+          <textarea id="fabricDesc" rows="3" placeholder="e.g. Deep emerald Ankara, bold geometric print, medium weight cotton, 6 yards"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Tell Us More</h3>
+        <p class="help">Anything you'd like to change from the sample, or details about fit and finish — write it here, and attach a reference image if that helps explain it.</p>
+        <div class="field">
+          <label for="notes">Your notes</label>
+          <textarea id="notes" rows="3" placeholder="e.g. I'd like the sleeves from Style 03 but the neckline from Style 01, and a slightly longer hem."></textarea>
+        </div>
+        <button class="attach-btn" id="attachBtn">＋ Attach a reference image</button>
+        <input type="file" id="noteFileInput" accept="image/*" style="display:none;">
+        <div class="file-chips" id="noteFileChips"></div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Click &amp; Collect Location</h3>
+        <p class="help">Let us know where you'd like to collect your finished piece.</p>
+        <div class="field">
+          <label for="collectLoc">Preferred collection point</label>
+          <input type="text" id="collectLoc" placeholder="e.g. London studio, or your nearest drop-off point">
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-row" style="padding-bottom:0;">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>Complete Your Order</h3>
+        <p class="help">Once you're happy with your selections above, send everything through to us on WhatsApp and we'll confirm your order and timeline directly.</p>
+        <div class="whatsapp-card">
+          <h3>Ready to send your custom order?</h3>
+          <p>Tap below to open WhatsApp with your selections pre-filled — review the message before sending.</p>
+          <a href="https://wa.me/447450207203" id="waLink" target="_blank" class="wa-btn">Chat on WhatsApp · +44 7450 207203</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ORDER GUARANTEE POLICY -->
+<section class="guarantee">
+  <div class="wrap">
+    <p class="eyebrow">Before You Order</p>
+    <h2 style="margin-top:8px; font-size:28px;">Order Guarantee Policy</h2>
+    <div style="margin-top:30px;">
+      <details class="accordion" open>
+        <summary>Read our full guarantee<span class="chev">+</span></summary>
+        <div class="acc-body">
+          <p>At Oladiplenty Stylist Consult, we want every customer to feel confident when placing an order with us. We guarantee that all orders will be carefully prepared, checked and packaged before dispatch, and will always aim to provide products that match the description, design, colour and size selected at the time of purchase.</p>
+          <h5>Order Confirmation</h5>
+          <p>Once your order has been successfully placed and payment has been confirmed, you will receive an order confirmation by email or through the contact details provided.</p>
+          <p>Customers are responsible for checking that all order details, including size, colour, delivery address and contact information, are correct.</p>
+          <p>Customers must ensure that all measurements and customisation details are accurate before production begins. Once production has started, changes may not be possible. Customised items cannot normally be returned or exchanged unless they are faulty, damaged or made differently from the agreed order.</p>
+          <h5>Delivery Guarantee</h5>
+          <p>We will aim to dispatch all orders within the estimated processing time shown on our website. Delivery dates are estimates and may be affected by courier delays, public holidays, weather conditions, customs checks or other circumstances outside our control.</p>
+          <p>If your order does not arrive within the expected delivery period, please contact us so that we can investigate with the delivery provider.</p>
+          <h5>Incorrect Delivery Information</h5>
+          <p>We cannot guarantee delivery where the customer provides an incorrect or incomplete delivery address. Any additional delivery costs caused by incorrect customer information may need to be paid by the customer.</p>
+          <h5>Reporting an Order Problem</h5>
+          <p>To report a problem with your order, please contact us with your full name, order date, a description of the issue, clear photographs or videos, and the date the order was received. We are committed to reviewing every genuine concern fairly and providing a suitable solution.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/bespoke.css' %}">
+<script src="{% static 'js/bespoke.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% load static %}
+<header class="sticky top-0 z-50 bg-white/70 backdrop-blur-[10px] border-b border-line">
+    <div class="max-w-[1240px] mx-auto px-5 md:px-10 flex items-center justify-between py-[18px]">
+        <a class="flex items-center gap-3.5" href="{% url 'home' %}">
+            <span class="monogram text-[32px] w-[0.86em] h-[1em]">
+                <span class="o">O</span>
+                <span class="s">S</span>
+            </span>
+            <span class="font-medium text-[10px] tracking-[0.05em] uppercase leading-tight">
+                Oladiplenty Stylist
+                <span class="block text-[8px] text-ink-soft italic font-serif font-medium tracking-[0.08em] normal-case">Modesty, Elegance &amp; Diversity</span>
+            </span>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex gap-8">
+            <a href="{% url 'shop_collections' %}" class="text-[13.5px] font-semibold relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-px after:bg-magenta after:transition-all after:duration-300 hover:after:w-full {% if request.resolver_match.url_name == 'shop_collections' %}after:w-full{% endif %}">Shop Collections</a>
+            <a href="{% url 'bespoke' %}" class="text-[13.5px] font-semibold relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-px after:bg-magenta after:transition-all after:duration-300 hover:after:w-full {% if request.resolver_match.url_name == 'bespoke' %}after:w-full{% endif %}">Bespoke</a>
+            <a href="{% url 'masterclass' %}" class="text-[13.5px] font-semibold relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-px after:bg-magenta after:transition-all after:duration-300 hover:after:w-full {% if request.resolver_match.url_name == 'masterclass' or request.resolver_match.url_name == 'consulting' %}after:w-full{% endif %}">Consulting</a>
+            <a href="{% url 'about' %}" class="text-[13.5px] font-semibold relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-px after:bg-magenta after:transition-all after:duration-300 hover:after:w-full {% if request.resolver_match.url_name == 'about' %}after:w-full{% endif %}">About</a>
+            <a href="{% url 'contact' %}" class="text-[13.5px] font-semibold relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-px after:bg-magenta after:transition-all after:duration-300 hover:after:w-full {% if request.resolver_match.url_name == 'contact' %}after:w-full{% endif %}">Contact</a>
+        </nav>
+        
+        <!-- Desktop Auth Buttons -->
+        <div class="hidden md:flex items-center gap-3">
+            <a href="#" class="text-[13.5px] font-semibold relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-px after:bg-magenta after:transition-all after:duration-300 hover:after:w-full">Login</a>
+            <a href="#" class="inline-flex items-center gap-2 font-bold text-[12.5px] tracking-[0.04em] uppercase px-6 py-3.5 rounded bg-magenta text-white border border-transparent transition-all duration-300 hover:bg-magenta-deep">Sign Up</a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-line">
+        <nav class="flex flex-col px-5 py-4 gap-4">
+            <a href="{% url 'shop_collections' %}" class="text-[15px] font-semibold py-2">Shop Collections</a>
+            <a href="{% url 'bespoke' %}" class="text-[15px] font-semibold py-2">Bespoke</a>
+            <a href="{% url 'masterclass' %}" class="text-[15px] font-semibold py-2">Consulting</a>
+            <a href="{% url 'about' %}" class="text-[15px] font-semibold py-2">About</a>
+            <a href="{% url 'contact' %}" class="text-[15px] font-semibold py-2">Contact</a>
+            <hr class="border-line my-2">
+            <a href="#" class="text-[15px] font-semibold py-2">Login</a>
+            <a href="#" class="inline-flex items-center justify-center gap-2 font-bold text-[12.5px] tracking-[0.04em] uppercase px-6 py-3.5 rounded bg-magenta text-white border border-transparent transition-all duration-300 hover:bg-magenta-deep">Sign Up</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+    });
+</script>

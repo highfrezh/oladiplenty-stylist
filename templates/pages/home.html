@@ -1,0 +1,283 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Oladiplenty Stylist Consult — Modesty, Elegance & Diversity{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+  <!-- ============================================================
+  HERO
+  ============================================================ -->
+  <section class="hero py-12 md:py-[50px] overflow-hidden">
+    <div class="max-w-[1240px] mx-auto px-5 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-10 items-stretch">
+        <div>
+          <p class="eyebrow font-sans text-[12px] font-bold tracking-[0.16em] uppercase text-terracotta-deep">Oladiplenty Stylist Consult &nbsp;·&nbsp; United Kingdom</p>
+          <h1 class="text-[clamp(36px,5vw,60px)] leading-[1.08] font-serif font-semibold tracking-[-0.01em]">Elegant Fashion. <span class="italic font-medium text-magenta">Tailored</span> for You. Designed with Purpose.</h1>
+          <p class="mt-6 max-w-[460px] text-[16.5px] leading-relaxed text-ink-soft">Discover timeless ready-to-wear collections, bespoke tailoring, professional fashion education, and expert business consulting — all thoughtfully designed to inspire confidence, creativity, and sustainable style.</p>
+          <div class="flex flex-wrap gap-3.5 mt-8">
+            <a href="#collections" class="inline-flex items-center gap-2 font-bold text-[12.5px] tracking-[0.04em] uppercase px-6 py-3.5 rounded bg-magenta text-white border border-transparent transition-all duration-300 hover:bg-magenta-deep">Shop Collections</a>
+            <a href="#bespoke" class="inline-flex items-center gap-2 font-bold text-[12.5px] tracking-[0.04em] uppercase px-6 py-3.5 rounded border border-terracotta text-terracotta-deep transition-all duration-300 hover:bg-terracotta hover:text-white">Custom Order</a>
+            <a href="https://wa.me/447450207203" class="inline-flex items-center gap-2 font-bold text-[12.5px] tracking-[0.04em] uppercase px-6 py-3.5 rounded border border-ink text-ink transition-all duration-300 hover:bg-ink hover:text-white">Book a Consultation</a>
+          </div>
+          <div class="flex gap-8 flex-wrap mt-12 pt-6 border-t border-line max-w-[560px]">
+            <div><b class="font-serif text-2xl font-semibold block">5</b><span class="text-[11.5px] text-ink-soft tracking-[0.02em]">Ready-to-wear collections</span></div>
+            <div><b class="font-serif text-2xl font-semibold block">UK &amp; EU</b><span class="text-[11.5px] text-ink-soft tracking-[0.02em]">Delivery, made to order</span></div>
+            <div><b class="font-serif text-2xl font-semibold block">Own Fabric</b><span class="text-[11.5px] text-ink-soft tracking-[0.02em]">Bespoke bring-your-own tailoring</span></div>
+          </div>
+        </div>
+
+        <!-- Lookbook Showcase -->
+        <div class="hero-showcase hidden md:flex flex-col h-full mt-2.5 md:mt-0">
+          <div class="lookbook-frame relative w-full flex-1 overflow-hidden rounded-xl border border-line bg-blush-deep shadow-[0_12px_32px_rgba(36,20,25,0.06)] isolate">
+            <div class="lookbook-slide active absolute inset-0" data-slide="0">
+              <img src="/media/home/hero_ready_to_wear.png" alt="Ready to Wear Collection" class="w-full h-full object-cover object-center">
+            </div>
+            <div class="lookbook-slide absolute inset-0" data-slide="1">
+              <img src="/media/home/hero_bespoke_detail.png" alt="Bespoke Tailoring Details" class="w-full h-full object-cover object-center">
+            </div>
+            <div class="lookbook-slide absolute inset-0" data-slide="2">
+              <img src="/media/home/hero_consulting_academy.png" alt="Stylist Consulting & Academy" class="w-full h-full object-cover object-center">
+            </div>
+          </div>
+
+          <div class="lookbook-nav flex gap-3.5 mt-4.5">
+            <button class="lookbook-tab flex-1 bg-transparent border-none border-t-2 border-line pt-2.5 pb-1.5 text-left cursor-pointer font-sans flex flex-col gap-0.5 relative transition-colors duration-300 active" data-target="0" aria-label="Show Ready to Wear Collection">
+              <span class="tab-num text-[10px] font-bold text-terracotta-deep tracking-[0.08em]">01</span>
+              <span class="tab-label text-[12.5px] font-bold text-ink-soft transition-colors duration-300">Ready to Wear</span>
+              <span class="tab-progress"></span>
+            </button>
+            <button class="lookbook-tab flex-1 bg-transparent border-none border-t-2 border-line pt-2.5 pb-1.5 text-left cursor-pointer font-sans flex flex-col gap-0.5 relative transition-colors duration-300" data-target="1" aria-label="Show Bespoke Tailoring Details">
+              <span class="tab-num text-[10px] font-bold text-terracotta-deep tracking-[0.08em]">02</span>
+              <span class="tab-label text-[12.5px] font-bold text-ink-soft transition-colors duration-300">Bespoke Order</span>
+              <span class="tab-progress"></span>
+            </button>
+            <button class="lookbook-tab flex-1 bg-transparent border-none border-t-2 border-line pt-2.5 pb-1.5 text-left cursor-pointer font-sans flex flex-col gap-0.5 relative transition-colors duration-300" data-target="2" aria-label="Show Academy and Consulting Details">
+              <span class="tab-num text-[10px] font-bold text-terracotta-deep tracking-[0.08em]">03</span>
+              <span class="tab-label text-[12.5px] font-bold text-ink-soft transition-colors duration-300">Academy &amp; Consulting</span>
+              <span class="tab-progress"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  COLLECTIONS RAIL
+  ============================================================ -->
+  <section class="bg-card border-t border-b border-line py-[60px]" id="collections">
+    <div class="max-w-[1240px] mx-auto px-5 md:px-10">
+      <div class="section-head flex justify-between items-end gap-6 flex-wrap mb-12">
+        <div class="reveal">
+          <p class="eyebrow font-sans text-[12px] font-bold tracking-[0.16em] uppercase text-terracotta-deep">Our Collections</p>
+          <h2 class="text-[clamp(28px,3.2vw,40px)] font-serif font-semibold tracking-[-0.01em] mt-2.5 max-w-[600px]">Discover fashion designed for every occasion.</h2>
+        </div>
+        <div class="rail-controls hidden sm:flex gap-2.5">
+          <button class="rail-btn w-[42px] h-[42px] rounded-full border border-ink bg-transparent text-[18px] cursor-pointer text-ink flex items-center justify-center transition-all duration-300 hover:bg-ink hover:text-white disabled:opacity-30 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-ink" id="railPrev" aria-label="Previous collection">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 4 6 8 10 12" /></svg>
+          </button>
+          <button class="rail-btn w-[42px] h-[42px] rounded-full border border-ink bg-transparent text-[18px] cursor-pointer text-ink flex items-center justify-center transition-all duration-300 hover:bg-ink hover:text-white disabled:opacity-30 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-ink" id="railNext" aria-label="Next collection">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 4 10 8 6 12" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="rail-track flex gap-5 overflow-x-auto scroll-snap-x-mandatory py-1 px-1 -mx-1" id="railTrack">
+        <a class="cat-card c1 relative flex-[0_0_auto] w-[min(290px,72vw)] h-[390px] scroll-snap-start rounded-xl overflow-hidden flex flex-col justify-end p-6 text-white" href="corporate-wear">
+          <span class="r-num text-[10.5px] tracking-[0.12em] uppercase font-bold opacity-85 absolute top-5 left-5.5">Corporate Wear</span>
+          <h3 class="font-serif italic font-medium text-xl">Corporate Wear</h3>
+          <p class="text-[12.5px] leading-relaxed mt-2 opacity-90">Professional pieces that combine sophistication with modern style.</p>
+        </a>
+        <a class="cat-card c2 relative flex-[0_0_auto] w-[min(290px,72vw)] h-[390px] scroll-snap-start rounded-xl overflow-hidden flex flex-col justify-end p-6 text-white" href="all-season">
+          <span class="r-num text-[10.5px] tracking-[0.12em] uppercase font-bold opacity-85 absolute top-5 left-5.5">All Season</span>
+          <h3 class="font-serif italic font-medium text-xl">All Season Collection</h3>
+          <p class="text-[12.5px] leading-relaxed mt-2 opacity-90">Timeless designs created to be worn throughout the year.</p>
+        </a>
+        <a class="cat-card c3 relative flex-[0_0_auto] w-[min(290px,72vw)] h-[390px] scroll-snap-start rounded-xl overflow-hidden flex flex-col justify-end p-6 text-white" href="african-prints">
+          <span class="r-num text-[10.5px] tracking-[0.12em] uppercase font-bold opacity-85 absolute top-5 left-5.5">African Prints</span>
+          <h3 class="font-serif italic font-medium text-xl">African Prints</h3>
+          <p class="text-[12.5px] leading-relaxed mt-2 opacity-90">Beautiful garments celebrating African culture with contemporary elegance.</p>
+        </a>
+        <a class="cat-card c4 relative flex-[0_0_auto] w-[min(290px,72vw)] h-[390px] scroll-snap-start rounded-xl overflow-hidden flex flex-col justify-end p-6 text-white" href="abaya-collection">
+          <span class="r-num text-[10.5px] tracking-[0.12em] uppercase font-bold opacity-85 absolute top-5 left-5.5">Modest Wear</span>
+          <h3 class="font-serif italic font-medium text-xl">Abaya Collection</h3>
+          <p class="text-[12.5px] leading-relaxed mt-2 opacity-90">Modest fashion designed with premium craftsmanship and refined style.</p>
+        </a>
+        <a class="cat-card c5 relative flex-[0_0_auto] w-[min(290px,72vw)] h-[390px] scroll-snap-start rounded-xl overflow-hidden flex flex-col justify-end p-6 text-white" href="reusable-bags">
+          <span class="r-num text-[10.5px] tracking-[0.12em] uppercase font-bold opacity-85 absolute top-5 left-5.5">Studio Made</span>
+          <h3 class="font-serif italic font-medium text-xl">Reusable Fabric Shopping Bags</h3>
+          <p class="text-[12.5px] leading-relaxed mt-2 opacity-90">Sustainable, stylish, and practical accessories for everyday living.</p>
+        </a>
+      </div>
+
+      <div class="rail-dots flex gap-2 justify-center mt-1" id="railDots"></div>
+      <div class="text-center mt-9">
+        <a href="/shop-collections" class="inline-flex items-center gap-2 font-bold text-[12.5px] tracking-[0.04em] uppercase px-6 py-3.5 rounded border border-terracotta text-terracotta-deep transition-all duration-300 hover:bg-terracotta hover:text-white">Explore Collections</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  ABOUT TEASER
+  ============================================================ -->
+  <section id="about-teaser" class="py-[60px]">
+    <div class="max-w-[1240px] mx-auto px-5 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-[70px] items-stretch">
+        <div class="about-visual relative rounded-xl bg-blush-deep border border-line overflow-hidden" aria-hidden="true">
+          <img src="/media/home/brand_campaign_editorial.png" alt="Oladiplenty brand campaign editorial featuring elegant modest clothing" class="w-full h-full object-cover block">
+          <div class="about-visual-overlay absolute inset-0 bg-gradient-to-b from-ink/5 via-ink/5 to-ink/40 flex items-center justify-center">
+            <span class="monogram text-[140px] w-[0.86em] h-[1em] brightness-[1.5]"><span class="o">O</span><span class="s">S</span></span>
+          </div>
+        </div>
+        <div class="about-copy reveal">
+          <p class="eyebrow font-sans text-[12px] font-bold tracking-[0.16em] uppercase text-terracotta-deep">About Us</p>
+          <h2 class="text-[clamp(26px,3vw,36px)] font-serif font-semibold tracking-[-0.01em] mt-2.5">A modern fashion and consulting brand rooted in elegance.</h2>
+          <p class="text-[15.5px] leading-relaxed text-ink-soft mt-4">Oladiplenty Stylist Consult is a UK-based studio designing elegant women's fashion, offering bespoke tailoring, professional fashion education, and business consulting — all built around one belief: that style is a powerful expression of who you are.</p>
+          <p class="text-[15.5px] leading-relaxed text-ink-soft mt-4">Founded by a University of Westminster graduate with over seven years of industry experience, every piece we create and every programme we teach reflects a deep commitment to quality, creativity, and sustainable growth.</p>
+          <a href="about" class="inline-flex items-center gap-2 font-bold text-[12.5px] tracking-[0.04em] uppercase px-6 py-3.5 rounded border border-terracotta text-terracotta-deep transition-all duration-300 hover:bg-terracotta hover:text-white mt-7">Our Story &amp; Meet the Founder →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  BESPOKE TEASER
+  ============================================================ -->
+  <section class="bespoke bg-ink text-white py-[60px]" id="bespoke">
+    <div class="max-w-[1240px] mx-auto px-5 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center">
+        <div class="reveal">
+          <p class="eyebrow font-sans text-[12px] font-bold tracking-[0.16em] uppercase text-terracotta">Bespoke Tailoring</p>
+          <h2 class="text-[clamp(26px,3vw,38px)] font-serif font-semibold tracking-[-0.01em] mt-3 text-white">Bring Your Own Fabric. We'll Bring Your Vision to Life.</h2>
+          <p class="text-[15px] leading-relaxed text-white/65 mt-4 max-w-[440px]">Already have fabric you love? Our bespoke tailoring service allows you to transform it into a professionally crafted garment. Browse our design gallery for inspiration, choose your preferred style, upload your fabric details, and let us create something uniquely yours. Every piece is carefully tailored with precision, quality, and attention to detail.</p>
+          <div class="mt-7">
+            <a href="/bespoke/" class="inline-flex items-center gap-2 font-bold text-[12.5px] tracking-[0.04em] uppercase px-6 py-3.5 rounded bg-magenta text-white border border-transparent transition-all duration-300 hover:bg-magenta-deep">Start Your Custom Order</a>
+          </div>
+        </div>
+        <div class="bespoke-visual relative aspect-[16/11] rounded-xl overflow-hidden bg-ink/90" aria-hidden="true">
+          <img src="/media/home/hero_bespoke_detail.png" alt="Bespoke tailoring detail — handcrafted garment in progress" class="w-full h-full object-cover block">
+          <div class="bespoke-overlay absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink/55"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  ACADEMY + CONSULTING
+  ============================================================ -->
+  <section id="academy" class="py-[72px]">
+    <div class="max-w-[1240px] mx-auto px-5 md:px-10">
+      <div class="section-head flex justify-between items-end gap-6 flex-wrap mb-12">
+        <div class="reveal">
+          <p class="eyebrow font-sans text-[12px] font-bold tracking-[0.16em] uppercase text-terracotta-deep">Fashion Academy &amp; Consulting</p>
+          <h2 id="consulting" class="text-[clamp(28px,3.2vw,40px)] font-serif font-semibold tracking-[-0.01em] mt-2.5 max-w-[600px]">Education and guidance for the next generation of fashion professionals.</h2>
+        </div>
+        <p class="max-w-[340px] text-[14.5px] text-ink-soft leading-relaxed">Practical training and business resources built from real industry experience — for beginners and business owners alike.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[22px] reveal">
+        <div class="bg-card border border-line rounded p-7 flex flex-col min-h-[280px] relative">
+          <span class="font-serif text-[38px] font-semibold italic text-terracotta opacity-25 leading-none mb-4 block select-none" aria-hidden="true">01</span>
+          <p class="eyebrow font-sans text-[12px] font-bold tracking-[0.16em] uppercase text-terracotta-deep">Digital Resources</p>
+          <h3 class="text-xl font-serif italic font-medium mt-2.5">Guidance to Business, Fashion &amp; Sustainability</h3>
+          <p class="text-[13.5px] leading-relaxed text-ink-soft mt-3 flex-1">Downloadable business guides, sustainability guides, pricing guides, templates, and e-books — practical resources for fashion entrepreneurs and creatives, instantly downloadable after purchase.</p>
+          <a href="#" class="mt-5 self-start px-4.5 py-2.5 text-[11px] font-bold tracking-[0.07em] uppercase border border-terracotta text-terracotta-deep rounded transition-all duration-300 hover:bg-terracotta hover:text-white">Browse Resources →</a>
+        </div>
+        <div class="bg-card border border-line rounded p-7 flex flex-col min-h-[280px] relative">
+          <span class="font-serif text-[38px] font-semibold italic text-terracotta opacity-25 leading-none mb-4 block select-none" aria-hidden="true">02</span>
+          <p class="eyebrow font-sans text-[12px] font-bold tracking-[0.16em] uppercase text-terracotta-deep">Fashion Masterclass</p>
+          <h3 class="text-xl font-serif italic font-medium mt-2.5">Women's Fashion Masterclass</h3>
+          <p class="text-[13.5px] leading-relaxed text-ink-soft mt-3 flex-1">A structured online programme covering pattern drafting, garment construction, fabric selection, and women's wear design — for beginners through to aspiring fashion entrepreneurs.</p>
+          <a href="#" class="mt-5 self-start px-4.5 py-2.5 text-[11px] font-bold tracking-[0.07em] uppercase border border-terracotta text-terracotta-deep rounded transition-all duration-300 hover:bg-terracotta hover:text-white">Enrol Now →</a>
+        </div>
+        <div class="bg-card border border-line rounded p-7 flex flex-col min-h-[280px] relative">
+          <span class="font-serif text-[38px] font-semibold italic text-terracotta opacity-25 leading-none mb-4 block select-none" aria-hidden="true">03</span>
+          <p class="eyebrow font-sans text-[12px] font-bold tracking-[0.16em] uppercase text-terracotta-deep">Business Programme</p>
+          <h3 class="text-xl font-serif italic font-medium mt-2.5">Fashion Business Management Programme</h3>
+          <p class="text-[13.5px] leading-relaxed text-ink-soft mt-3 flex-1">Build a fashion business with confidence — brand identity, pricing, marketing, e-commerce, and sustainable operations, for start-up brands and established owners alike.</p>
+          <a href="#" class="mt-5 self-start px-4.5 py-2.5 text-[11px] font-bold tracking-[0.07em] uppercase border border-terracotta text-terracotta-deep rounded transition-all duration-300 hover:bg-terracotta hover:text-white">Enrol Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  WHY CHOOSE US
+  ============================================================ -->
+  <section class="bg-card border-t border-b border-line py-[72px]">
+    <div class="max-w-[1240px] mx-auto px-5 md:px-10">
+      <div class="section-head flex justify-between items-end gap-6 flex-wrap mb-12">
+        <div class="reveal">
+          <p class="eyebrow font-sans text-[12px] font-bold tracking-[0.16em] uppercase text-terracotta-deep">Why Choose Us</p>
+          <h2 class="text-[clamp(28px,3.2vw,40px)] font-serif font-semibold tracking-[-0.01em] mt-2.5 max-w-[600px]">Built on quality, craft, and a genuine love for fashion.</h2>
+        </div>
+        <p class="max-w-[340px] text-[14.5px] text-ink-soft leading-relaxed">Eight reasons women across the UK and EU trust Oladiplenty Stylist Consult with their wardrobe — and their ambitions.</p>
+      </div>
+
+      <div class="feature-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="feature-item bg-card p-[30px_26px] flex flex-col gap-2.5 transition-colors duration-300 hover:bg-blush">
+          <div class="feature-icon w-11 h-11 rounded-full bg-blush-deep flex items-center justify-center text-terracotta-deep mb-1.5 flex-shrink-0 transition-colors duration-300 hover:bg-magenta hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h4 class="text-sm font-bold text-ink leading-tight">Premium Quality Craftsmanship</h4>
+          <p class="text-[13px] leading-relaxed text-ink-soft m-0">Every garment is finished to the highest standard — precise cut, strong construction, and exceptional detail.</p>
+        </div>
+        <div class="feature-item bg-card p-[30px_26px] flex flex-col gap-2.5 transition-colors duration-300 hover:bg-blush">
+          <div class="feature-icon w-11 h-11 rounded-full bg-blush-deep flex items-center justify-center text-terracotta-deep mb-1.5 flex-shrink-0 transition-colors duration-300 hover:bg-magenta hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h4 class="text-sm font-bold text-ink leading-tight">Elegant &amp; Modest Fashion</h4>
+          <p class="text-[13px] leading-relaxed text-ink-soft m-0">Designs that celebrate femininity and modesty — crafted for women who dress with intention and confidence.</p>
+        </div>
+        <div class="feature-item bg-card p-[30px_26px] flex flex-col gap-2.5 transition-colors duration-300 hover:bg-blush">
+          <div class="feature-icon w-11 h-11 rounded-full bg-blush-deep flex items-center justify-center text-terracotta-deep mb-1.5 flex-shrink-0 transition-colors duration-300 hover:bg-magenta hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </div>
+          <h4 class="text-sm font-bold text-ink leading-tight">Bespoke Tailoring Services</h4>
+          <p class="text-[13px] leading-relaxed text-ink-soft m-0">Bring your own fabric and we'll craft it into a garment made precisely to your measurements and vision.</p>
+        </div>
+        <div class="feature-item bg-card p-[30px_26px] flex flex-col gap-2.5 transition-colors duration-300 hover:bg-blush">
+          <div class="feature-icon w-11 h-11 rounded-full bg-blush-deep flex items-center justify-center text-terracotta-deep mb-1.5 flex-shrink-0 transition-colors duration-300 hover:bg-magenta hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h4 class="text-sm font-bold text-ink leading-tight">Fashion Education &amp; Mentorship</h4>
+          <p class="text-[13px] leading-relaxed text-ink-soft m-0">Practical online programmes built from real industry experience — for beginners through to business owners.</p>
+        </div>
+        <div class="feature-item bg-card p-[30px_26px] flex flex-col gap-2.5 transition-colors duration-300 hover:bg-blush">
+          <div class="feature-icon w-11 h-11 rounded-full bg-blush-deep flex items-center justify-center text-terracotta-deep mb-1.5 flex-shrink-0 transition-colors duration-300 hover:bg-magenta hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <h4 class="text-sm font-bold text-ink leading-tight">Sustainable Approach</h4>
+          <p class="text-[13px] leading-relaxed text-ink-soft m-0">From made-to-order production to conscious fabric sourcing — sustainability is woven into every decision.</p>
+        </div>
+        <div class="feature-item bg-card p-[30px_26px] flex flex-col gap-2.5 transition-colors duration-300 hover:bg-blush">
+          <div class="feature-icon w-11 h-11 rounded-full bg-blush-deep flex items-center justify-center text-terracotta-deep mb-1.5 flex-shrink-0 transition-colors duration-300 hover:bg-magenta hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4 class="text-sm font-bold text-ink leading-tight">Secure Online Shopping</h4>
+          <p class="text-[13px] leading-relaxed text-ink-soft m-0">Shop confidently across our full collection with safe checkout, transparent pricing, and clear order tracking.</p>
+        </div>
+        <div class="feature-item bg-card p-[30px_26px] flex flex-col gap-2.5 transition-colors duration-300 hover:bg-blush">
+          <div class="feature-icon w-11 h-11 rounded-full bg-blush-deep flex items-center justify-center text-terracotta-deep mb-1.5 flex-shrink-0 transition-colors duration-300 hover:bg-magenta hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h4 class="text-sm font-bold text-ink leading-tight">Trusted Customer Support</h4>
+          <p class="text-[13px] leading-relaxed text-ink-soft m-0">Accessible via WhatsApp and email, we guide you through every step — from first enquiry to final delivery.</p>
+        </div>
+        <div class="feature-item bg-card p-[30px_26px] flex flex-col gap-2.5 transition-colors duration-300 hover:bg-blush">
+          <div class="feature-icon w-11 h-11 rounded-full bg-blush-deep flex items-center justify-center text-terracotta-deep mb-1.5 flex-shrink-0 transition-colors duration-300 hover:bg-magenta hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h4 class="text-sm font-bold text-ink leading-tight">UK-Based, Global Vision</h4>
+          <p class="text-[13px] leading-relaxed text-ink-soft m-0">Founded in the UK by a Westminster graduate, designing for women across the United Kingdom, Europe, and beyond.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

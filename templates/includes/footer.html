@@ -1,0 +1,59 @@
+{% load static %}
+<footer class="bg-ink text-white pt-[70px] pb-[35px] border-t border-white/8">
+    <div class="max-w-[1240px] mx-auto px-5 md:px-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-[50px] border-b border-white/12">
+            <div class="foot-brand">
+                <span class="monogram text-[42px] w-[0.86em] h-[1em] block mb-4.5">
+                    <span class="o">O</span>
+                    <span class="s">S</span>
+                </span>
+                <p class="text-[13px] max-w-[280px] leading-relaxed text-white/80">A UK-based studio designing ready-to-wear, bespoke garments, fashion education, and business consulting for people who dress and build on their own terms.</p>
+            </div>
+            <div>
+                <h5 class="text-white text-[12px] tracking-[0.1em] uppercase font-bold mb-4.5">Shop</h5>
+                <a href="{% url 'corporate_wear' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">Corporate Wear</a>
+                <a href="{% url 'all_season' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">All Season</a>
+                <a href="{% url 'african_prints' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">African Prints</a>
+                <a href="{% url 'abaya_collection' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">Abaya Collection</a>
+                <a href="{% url 'reusable_bags' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">Studio Accessories</a>
+            </div>
+            <div>
+                <h5 class="text-white text-[12px] tracking-[0.1em] uppercase font-bold mb-4.5">Learn</h5>
+                <a href="{% url 'masterclass' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">Women's Fashion Masterclass</a>
+                <a href="{% url 'masterclass' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">Business Management Programme</a>
+                <a href="{% url 'masterclass' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">Digital Resources</a>
+            </div>
+            <div>
+                <h5 class="text-white text-[12px] tracking-[0.1em] uppercase font-bold mb-4.5">Company</h5>
+                <a href="{% url 'about' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">About Us</a>
+                <a href="{% url 'about' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">Meet the Founder</a>
+                <a href="{% url 'about' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">Our Values</a>
+                <a href="{% url 'contact' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">Contact Us</a>
+            </div>
+            <div>
+                <h5 class="text-white text-[12px] tracking-[0.1em] uppercase font-bold mb-4.5">Contact</h5>
+                <a href="mailto:oladiplentystylist@gmail.com" class="block text-[14px] text-white/70 hover:text-white py-1.5">oladiplentystylist@gmail.com</a>
+                <a href="https://wa.me/447450207203" class="block text-[14px] text-white/70 hover:text-white py-1.5">WhatsApp +44 7450 207203</a>
+                <a href="{% url 'contact' %}" class="block text-[14px] text-white/70 hover:text-white py-1.5">London, United Kingdom</a>
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-3.5 pt-6 text-[12px] text-white/70 flex-wrap">
+            <span>© 2026 Oladiplenty Stylist Consult. All rights reserved.</span>
+            <div class="socials flex gap-3.5" aria-label="Social links">
+                <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener" class="w-[34px] h-[34px] border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:border-magenta hover:bg-magenta text-white">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://tiktok.com" aria-label="TikTok" target="_blank" rel="noopener" class="w-[34px] h-[34px] border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:border-magenta hover:bg-magenta text-white">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                </a>
+                <a href="http://linkedin.com/in/oladiplenty-stylist/" aria-label="LinkedIn" target="_blank" rel="noopener" class="w-[34px] h-[34px] border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:border-magenta hover:bg-magenta text-white">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://youtube.com" aria-label="YouTube" target="_blank" rel="noopener" class="w-[34px] h-[34px] border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:border-magenta hover:bg-magenta text-white">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,509 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Shop Collections — Oladiplenty Stylist Consult{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/shop-collections.css' %}" />
+
+    <!-- ============================================================
+    HERO — FULL-BLEED BACKGROUND SLIDER
+    ============================================================ -->
+    <section class="relative min-h-[90vh] flex flex-col justify-start bg-[#382930] overflow-hidden">
+        <!-- Slider images -->
+        <div class="absolute inset-0 z-0" id="heroSliderBg">
+            <div class="hero-slide absolute inset-0 bg-contain bg-right-bottom bg-no-repeat active" style="background-image: url('/media/home/hero_campaign_wide.png');" data-index="0" data-cat="all"></div>
+            <div class="hero-slide absolute inset-0 bg-contain bg-right-bottom bg-no-repeat" style="background-image: url('/media/home/hero_corporate_wide.png');" data-index="1" data-cat="corporate"></div>
+            <div class="hero-slide absolute inset-0 bg-contain bg-right-bottom bg-no-repeat" style="background-image: url('/media/home/hero_all_season_wide.png');" data-index="2" data-cat="season"></div>
+            <div class="hero-slide absolute inset-0 bg-contain bg-right-bottom bg-no-repeat" style="background-image: url('/media/home/hero_african_prints_wide.png');" data-index="3" data-cat="prints"></div>
+            <div class="hero-slide absolute inset-0 bg-contain bg-right-bottom bg-no-repeat" style="background-image: url('/media/home/hero_abaya_wide.png');" data-index="4" data-cat="abaya"></div>
+            <div class="hero-slide absolute inset-0 bg-contain bg-right-bottom bg-no-repeat" style="background-image: url('/media/home/collection_reusable_bags.png');" data-index="5" data-cat="bags"></div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="hero-overlay absolute inset-0 z-1 pointer-events-none"></div>
+
+        <!-- Content -->
+        <div class="relative z-2 text-white px-6 md:px-8 max-w-[1280px] mx-auto w-full">
+            <div class="ml-0 md:ml-[100px] pt-16 md:pt-32 lg:pt-40">
+                <div class="breadcrumb text-xs text-white/45">
+                    <a href="{% url 'home' %}" class="text-white/55 hover:text-white">Home</a><span class="mx-2">/</span>Shop Collections
+                </div>
+
+                <div class="max-w-3xl">
+                    <div class="flex items-center gap-3 mt-2">
+                        <span class="eyebrow text-terracotta-light text-[11px] font-bold tracking-[0.18em] uppercase" id="heroEyebrow">All Collections · UK Studio</span>
+                        <span class="bg-white/8 border border-white/15 px-3.5 py-0.5 rounded-full text-[10px] font-bold tracking-[0.1em] uppercase text-white" id="heroPill">5 Collections</span>
+                    </div>
+
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-light italic leading-[1.08] text-white mt-4" id="heroTitle">
+                        Pieces crafted for <em class="not-italic text-terracotta-light">elegance,</em><br />modesty, and purpose.
+                    </h1>
+
+                    <p class="text-[15.5px] text-white/75 leading-relaxed max-w-[440px] mt-4" id="heroDesc">
+                        Five collections, each with its own story. Browse by category below or explore a specific collection in full.
+                    </p>
+
+                    <div class="flex items-center gap-7 flex-wrap mt-4">
+                        <div class="font-serif italic text-xl text-white/80 tracking-[0.04em]">
+                            <span class="current text-magenta font-semibold text-[28px]" id="currentSlideNum">01</span> / 06
+                        </div>
+                        <div class="flex gap-1.5" id="slideDots">
+                            <button class="hero-dot w-8 h-[3px] rounded bg-white/20 active:bg-magenta active:w-[52px] transition-all duration-300" data-slide="0" aria-label="Slide 1"></button>
+                            <button class="hero-dot w-8 h-[3px] rounded bg-white/20 hover:bg-white/40 transition-all duration-300" data-slide="1" aria-label="Slide 2"></button>
+                            <button class="hero-dot w-8 h-[3px] rounded bg-white/20 hover:bg-white/40 transition-all duration-300" data-slide="2" aria-label="Slide 3"></button>
+                            <button class="hero-dot w-8 h-[3px] rounded bg-white/20 hover:bg-white/40 transition-all duration-300" data-slide="3" aria-label="Slide 4"></button>
+                            <button class="hero-dot w-8 h-[3px] rounded bg-white/20 hover:bg-white/40 transition-all duration-300" data-slide="4" aria-label="Slide 5"></button>
+                            <button class="hero-dot w-8 h-[3px] rounded bg-white/20 hover:bg-white/40 transition-all duration-300" data-slide="5" aria-label="Slide 6"></button>
+                        </div>
+                        <div class="flex gap-1.5">
+                            <button class="hero-arrow w-9 h-9 rounded-full bg-white/6 border border-white/15 text-white flex items-center justify-center text-sm transition-all duration-300 hover:bg-magenta hover:border-magenta hover:scale-105" id="prevSlide" aria-label="Previous">←</button>
+                            <button class="hero-arrow w-9 h-9 rounded-full bg-white/6 border border-white/15 text-white flex items-center justify-center text-sm transition-all duration-300 hover:bg-magenta hover:border-magenta hover:scale-105" id="nextSlide" aria-label="Next">→</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Bar (pinned to bottom) -->
+        <div class="absolute bottom-0 left-0 right-0 z-3 bg-ink/70 backdrop-blur-[14px] saturate-[1.2] border-t border-white/6 py-3.5">
+            <div class="max-w-[1280px] mx-auto px-6 md:px-8 flex items-center gap-2 flex-wrap">
+                <span class="text-[10px] font-bold tracking-[0.16em] uppercase text-white/35 mr-1.5 whitespace-nowrap">Browse</span>
+                <button class="filter-btn bg-white/5 border border-white/8 px-5 py-1.5 rounded-[30px] text-xs font-semibold text-white/65 transition-all duration-300 hover:bg-white/15 hover:text-white hover:border-white/20 active:bg-magenta active:text-white active:border-magenta active:shadow-[0_4px_16px_rgba(217,28,115,0.3)]" data-filter="all" data-slide="0">All Collections</button>
+                <button class="filter-btn bg-white/5 border border-white/8 px-5 py-1.5 rounded-[30px] text-xs font-semibold text-white/65 transition-all duration-300 hover:bg-white/15 hover:text-white hover:border-white/20 active:bg-magenta active:text-white active:border-magenta active:shadow-[0_4px_16px_rgba(217,28,115,0.3)]" data-filter="corporate" data-slide="1">Corporate Wear</button>
+                <button class="filter-btn bg-white/5 border border-white/8 px-5 py-1.5 rounded-[30px] text-xs font-semibold text-white/65 transition-all duration-300 hover:bg-white/15 hover:text-white hover:border-white/20 active:bg-magenta active:text-white active:border-magenta active:shadow-[0_4px_16px_rgba(217,28,115,0.3)]" data-filter="season" data-slide="2">All Season</button>
+                <button class="filter-btn bg-white/5 border border-white/8 px-5 py-1.5 rounded-[30px] text-xs font-semibold text-white/65 transition-all duration-300 hover:bg-white/15 hover:text-white hover:border-white/20 active:bg-magenta active:text-white active:border-magenta active:shadow-[0_4px_16px_rgba(217,28,115,0.3)]" data-filter="prints" data-slide="3">African Prints</button>
+                <button class="filter-btn bg-white/5 border border-white/8 px-5 py-1.5 rounded-[30px] text-xs font-semibold text-white/65 transition-all duration-300 hover:bg-white/15 hover:text-white hover:border-white/20 active:bg-magenta active:text-white active:border-magenta active:shadow-[0_4px_16px_rgba(217,28,115,0.3)]" data-filter="abaya" data-slide="4">Abaya Collection</button>
+                <button class="filter-btn bg-white/5 border border-white/8 px-5 py-1.5 rounded-[30px] text-xs font-semibold text-white/65 transition-all duration-300 hover:bg-white/15 hover:text-white hover:border-white/20 active:bg-magenta active:text-white active:border-magenta active:shadow-[0_4px_16px_rgba(217,28,115,0.3)]" data-filter="bags" data-slide="5">Studio Accessories</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    COLLECTION SECTIONS
+    ============================================================ -->
+    <main class="py-14 md:py-20">
+        <div class="max-w-[1280px] mx-auto px-6 md:px-8">
+
+            <!-- ==================== 1. CORPORATE WEAR ==================== -->
+            <section class="col-section" id="sec-corporate">
+                <div class="flex items-end justify-between gap-7 flex-wrap pb-7 mb-8 border-b border-line">
+                    <div class="max-w-[700px]">
+                        <span class="eyebrow text-terracotta-deep text-[11px] font-bold tracking-[0.18em] uppercase block mb-2">Corporate Wear · 8 Pieces</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-light italic leading-[1.15]">Tailored for the modern professional</h2>
+                        <p class="text-sm text-ink-soft leading-relaxed max-w-[480px] mt-2">Structured blazers, two-piece sets, and refined silhouettes built for boardrooms, meetings, and every occasion that demands presence.</p>
+                    </div>
+                    <a href="{% url 'corporate_wear' %}" class="col-view-all inline-flex items-center gap-2 text-xs font-bold tracking-[0.08em] uppercase text-ink border-b-[1.5px] border-ink pb-1 whitespace-nowrap transition-all duration-300 hover:text-magenta hover:border-magenta group">
+                        View Full Collection <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-7">
+                    <!-- Preview cards (shown in "All" mode) -->
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="corporate" data-preview="true" href="{% url 'product_detail' product_id='corporate-1' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_corporate.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">New</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Corporate Wear</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Adunola Power Blazer Set</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£165.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="corporate" data-preview="true" href="{% url 'corporate_wear' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_corporate.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">New</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Corporate Wear</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Folake Executive Dress</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£145.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="corporate" data-preview="true" href="{% url 'product_detail' product_id='corporate-2' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_corporate.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">Bestseller</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Corporate Wear</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Ngozi Two-Piece Set</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£185.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="corporate" data-preview="true" href="{% url 'product_detail' product_id='corporate-3' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_corporate.png');">
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Corporate Wear</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Chioma Structured Blazer</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£155.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★☆</span></div>
+                        </div>
+                    </a>
+
+                <div class="col-cta hidden mt-10 bg-ink rounded-lg px-8 md:px-11 py-9 flex items-center justify-between gap-7 flex-wrap relative overflow-hidden isolate" id="cta-corporate">
+                    <div class="absolute -top-[60px] -right-[60px] w-[260px] h-[260px] bg-gradient-radial from-magenta/15 to-transparent pointer-events-none z-0"></div>
+                    <div class="relative z-1">
+                        <span class="eyebrow text-terracotta-light text-[11px] font-bold tracking-[0.18em] uppercase">Corporate Wear Collection</span>
+                        <h3 class="text-2xl font-serif font-light italic text-white mt-1.5">See every piece in this collection</h3>
+                        <p class="text-[13.5px] text-white/55 mt-1">8 pieces · Sizes UK 8–18 · Made-to-order available</p>
+                    </div>
+                    <a href="{% url 'corporate_wear' %}" class="btn btn-fill relative z-1 inline-flex items-center justify-center gap-2 font-bold text-[11.5px] tracking-[0.08em] uppercase px-7 py-3.5 rounded bg-magenta text-white border border-magenta transition-all duration-300 hover:bg-magenta-deep hover:border-magenta-deep hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(217,28,115,0.3)]">View Full Collection →</a>
+                </div>
+            </section>
+
+            <hr class="section-sep border-none border-t border-line my-16 opacity-60" id="sep-1">
+
+            <!-- ==================== 2. ALL SEASON ==================== -->
+            <section class="col-section" id="sec-season">
+                <div class="flex items-end justify-between gap-7 flex-wrap pb-7 mb-8 border-b border-line">
+                    <div class="max-w-[700px]">
+                        <span class="eyebrow text-terracotta-deep text-[11px] font-bold tracking-[0.18em] uppercase block mb-2">All Season · 8 Pieces</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-light italic leading-[1.15]">Built to carry you across the year</h2>
+                        <p class="text-sm text-ink-soft leading-relaxed max-w-[480px] mt-2">Versatile, breathable fabrics designed for year-round comfort — pieces that move easily between seasons without losing their shape or elegance.</p>
+                    </div>
+                    <a href="{% url 'all_season' %}" class="col-view-all inline-flex items-center gap-2 text-xs font-bold tracking-[0.08em] uppercase text-ink border-b-[1.5px] border-ink pb-1 whitespace-nowrap transition-all duration-300 hover:text-magenta hover:border-magenta group">
+                        View Full Collection <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-7">
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="season" data-preview="true" href="{% url 'product_detail' product_id='season-1' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_all_season.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">New</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">All Season</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Yetunde Wrap Top</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£68.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="season" data-preview="true" href="{% url 'all_season' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_all_season.png');">
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">All Season</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Halima Midi Dress</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£135.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="season" data-preview="true" href="{% url 'product_detail' product_id='season-2' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_all_season.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">Bestseller</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">All Season</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Bimpe Linen Jumpsuit</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£145.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★☆</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="season" data-preview="true" href="{% url 'product_detail' product_id='season-3' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_all_season.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">Restocked</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">All Season</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Chidinma Kimono</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£95.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-cta hidden mt-10 bg-ink rounded-lg px-8 md:px-11 py-9 flex items-center justify-between gap-7 flex-wrap relative overflow-hidden isolate" id="cta-season">
+                    <div class="absolute -top-[60px] -right-[60px] w-[260px] h-[260px] bg-gradient-radial from-magenta/15 to-transparent pointer-events-none z-0"></div>
+                    <div class="relative z-1">
+                        <span class="eyebrow text-terracotta-light text-[11px] font-bold tracking-[0.18em] uppercase">All Season Collection</span>
+                        <h3 class="text-2xl font-serif font-light italic text-white mt-1.5">See every piece in this collection</h3>
+                        <p class="text-[13.5px] text-white/55 mt-1">8 pieces · Sizes UK 8–18 · Made-to-order available</p>
+                    </div>
+                    <a href="{% url 'all_season' %}" class="btn btn-fill relative z-1 inline-flex items-center justify-center gap-2 font-bold text-[11.5px] tracking-[0.08em] uppercase px-7 py-3.5 rounded bg-magenta text-white border border-magenta transition-all duration-300 hover:bg-magenta-deep hover:border-magenta-deep hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(217,28,115,0.3)]">View Full Collection →</a>
+                </div>
+            </section>
+
+            <hr class="section-sep border-none border-t border-line my-16 opacity-60" id="sep-2">
+
+            <!-- ==================== 3. AFRICAN PRINTS ==================== -->
+            <section class="col-section" id="sec-prints">
+                <div class="flex items-end justify-between gap-7 flex-wrap pb-7 mb-8 border-b border-line">
+                    <div class="max-w-[700px]">
+                        <span class="eyebrow text-terracotta-deep text-[11px] font-bold tracking-[0.18em] uppercase block mb-2">African Prints · 8 Pieces</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-light italic leading-[1.15]">Heritage patterns, contemporary elegance</h2>
+                        <p class="text-sm text-ink-soft leading-relaxed max-w-[480px] mt-2">Authentic Ankara and Adire fabrics cut with a modern eye — celebrating African identity through bold pattern, vivid colour, and refined silhouette.</p>
+                    </div>
+                    <a href="{% url 'african_prints' %}" class="col-view-all inline-flex items-center gap-2 text-xs font-bold tracking-[0.08em] uppercase text-ink border-b-[1.5px] border-ink pb-1 whitespace-nowrap transition-all duration-300 hover:text-magenta hover:border-magenta group">
+                        View Full Collection <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-7">
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="prints" data-preview="true" href="{% url 'product_detail' product_id='prints-1' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_african_prints.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">New</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">African Prints</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Adanna Ankara Maxi Dress</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£165.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="prints" data-preview="true" href="{% url 'african_prints' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_african_prints.png');">
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">African Prints</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Chioma Two-Piece Set</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£185.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="prints" data-preview="true" href="{% url 'product_detail' product_id='prints-2' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_african_prints.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">Bestseller</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">African Prints</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Nneka Adire Midi Dress</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£155.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="prints" data-preview="true" href="{% url 'product_detail' product_id='prints-3' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_african_prints.png');">
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">African Prints</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Obiageli Peplum Top</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£95.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★☆</span></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-cta hidden mt-10 bg-ink rounded-lg px-8 md:px-11 py-9 flex items-center justify-between gap-7 flex-wrap relative overflow-hidden isolate" id="cta-prints">
+                    <div class="absolute -top-[60px] -right-[60px] w-[260px] h-[260px] bg-gradient-radial from-magenta/15 to-transparent pointer-events-none z-0"></div>
+                    <div class="relative z-1">
+                        <span class="eyebrow text-terracotta-light text-[11px] font-bold tracking-[0.18em] uppercase">African Prints Collection</span>
+                        <h3 class="text-2xl font-serif font-light italic text-white mt-1.5">See every piece in this collection</h3>
+                        <p class="text-[13.5px] text-white/55 mt-1">8 pieces · Sizes UK 8–18 · Made-to-order available</p>
+                    </div>
+                    <a href="{% url 'african_prints' %}" class="btn btn-fill relative z-1 inline-flex items-center justify-center gap-2 font-bold text-[11.5px] tracking-[0.08em] uppercase px-7 py-3.5 rounded bg-magenta text-white border border-magenta transition-all duration-300 hover:bg-magenta-deep hover:border-magenta-deep hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(217,28,115,0.3)]">View Full Collection →</a>
+                </div>
+            </section>
+
+            <hr class="section-sep border-none border-t border-line my-16 opacity-60" id="sep-3">
+
+            <!-- ==================== 4. ABAYA ==================== -->
+            <section class="col-section" id="sec-abaya">
+                <div class="flex items-end justify-between gap-7 flex-wrap pb-7 mb-8 border-b border-line">
+                    <div class="max-w-[700px]">
+                        <span class="eyebrow text-terracotta-deep text-[11px] font-bold tracking-[0.18em] uppercase block mb-2">Abaya Collection · 8 Pieces</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-light italic leading-[1.15]">Modest fashion, premium craftsmanship</h2>
+                        <p class="text-sm text-ink-soft leading-relaxed max-w-[480px] mt-2">Graceful abayas and modest wear designed with premium fabrics, refined details, and a commitment to both tradition and contemporary style.</p>
+                    </div>
+                    <a href="{% url 'abaya_collection' %}" class="col-view-all inline-flex items-center gap-2 text-xs font-bold tracking-[0.08em] uppercase text-ink border-b-[1.5px] border-ink pb-1 whitespace-nowrap transition-all duration-300 hover:text-magenta hover:border-magenta group">
+                        View Full Collection <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-7">
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="abaya" data-preview="true" href="{% url 'product_detail' product_id='abaya-1' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_abaya.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">New</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Abaya Collection</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Aisha Classic Abaya</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£145.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="abaya" data-preview="true" href="{% url 'product_detail' product_id='abaya-2' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_abaya.png');">
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Abaya Collection</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Fatima Open Abaya</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£165.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="abaya" data-preview="true" href="{% url 'product_detail' product_id='abaya-3' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_abaya.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">Bestseller</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Abaya Collection</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Khadijah Kimono Abaya</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£185.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="abaya" data-preview="true" href="{% url 'product_detail' product_id='abaya-2' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_abaya.png');">
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Abaya Collection</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Maryam Modest Dress</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£135.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★☆</span></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-cta hidden mt-10 bg-ink rounded-lg px-8 md:px-11 py-9 flex items-center justify-between gap-7 flex-wrap relative overflow-hidden isolate" id="cta-abaya">
+                    <div class="absolute -top-[60px] -right-[60px] w-[260px] h-[260px] bg-gradient-radial from-magenta/15 to-transparent pointer-events-none z-0"></div>
+                    <div class="relative z-1">
+                        <span class="eyebrow text-terracotta-light text-[11px] font-bold tracking-[0.18em] uppercase">Abaya Collection</span>
+                        <h3 class="text-2xl font-serif font-light italic text-white mt-1.5">See every piece in this collection</h3>
+                        <p class="text-[13.5px] text-white/55 mt-1">8 pieces · Sizes UK 8–18 · Made-to-order available</p>
+                    </div>
+                    <a href="{% url 'abaya_collection' %}" class="btn btn-fill relative z-1 inline-flex items-center justify-center gap-2 font-bold text-[11.5px] tracking-[0.08em] uppercase px-7 py-3.5 rounded bg-magenta text-white border border-magenta transition-all duration-300 hover:bg-magenta-deep hover:border-magenta-deep hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(217,28,115,0.3)]">View Full Collection →</a>
+                </div>
+            </section>
+
+            <hr class="section-sep border-none border-t border-line my-16 opacity-60" id="sep-4">
+
+            <!-- ==================== 5. STUDIO ACCESSORIES ==================== -->
+            <section class="col-section" id="sec-bags">
+                <div class="flex items-end justify-between gap-7 flex-wrap pb-7 mb-8 border-b border-line">
+                    <div class="max-w-[700px]">
+                        <span class="eyebrow text-terracotta-deep text-[11px] font-bold tracking-[0.18em] uppercase block mb-2">Studio Accessories · 6 Pieces</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-light italic leading-[1.15]">Sustainable, stylish, and practical</h2>
+                        <p class="text-sm text-ink-soft leading-relaxed max-w-[480px] mt-2">Handcrafted reusable fabric shopping bags made from premium materials — sustainable accessories designed for everyday living with style and purpose.</p>
+                    </div>
+                    <a href="{% url 'reusable_bags' %}" class="col-view-all inline-flex items-center gap-2 text-xs font-bold tracking-[0.08em] uppercase text-ink border-b-[1.5px] border-ink pb-1 whitespace-nowrap transition-all duration-300 hover:text-magenta hover:border-magenta group">
+                        View Full Collection <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-7">
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="bags" data-preview="true" href="{% url 'reusable_bags' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_reusable_bags.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">New</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Studio Accessories</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Lagos Market Tote</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£35.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="bags" data-preview="true" href="{% url 'reusable_bags' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_reusable_bags.png');">
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Studio Accessories</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Abuja Shopper Bag</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£40.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="bags" data-preview="true" href="{% url 'reusable_bags' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_reusable_bags.png');">
+                            <span class="p-badge absolute top-3.5 left-3.5 z-2 bg-white/92 text-ink text-[9px] font-extrabold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-sm bg-magenta text-white">Bestseller</span>
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Studio Accessories</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Kano Foldable Bag</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£28.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★★</span></div>
+                        </div>
+                    </a>
+                    <a class="p-card block transition-transform duration-300 hover:-translate-y-1" data-cat="bags" data-preview="true" href="{% url 'reusable_bags' %}">
+                        <div class="p-image aspect-[4/5] rounded-[6px] relative overflow-hidden bg-blush-deep isolate" style="background-image: url('/media/home/collection_reusable_bags.png');">
+                            <button class="wishlist-btn absolute top-3.5 right-3.5 z-2 w-8.5 h-8.5 rounded-full bg-white/85 backdrop-blur-sm border-none flex items-center justify-center opacity-0 transition-all duration-300 text-ink hover:bg-white hover:text-magenta hover:scale-110 p-0" aria-label="Add to wishlist" onclick="event.preventDefault()">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </button>
+                            <div class="quick-add absolute bottom-0 left-0 right-0 z-2 bg-ink/88 backdrop-blur-sm text-white text-center text-[11px] font-bold tracking-[0.1em] uppercase py-3.5 translate-y-full transition-transform duration-300">View Item →</div>
+                        </div>
+                        <div class="mt-3.5">
+                            <div class="p-collection text-[10px] font-bold tracking-[0.12em] uppercase text-terracotta-deep">Studio Accessories</div>
+                            <div class="p-name text-[15px] font-serif font-light italic leading-tight mt-1">The Ibadan Produce Bag</div>
+                            <div class="flex justify-between items-center mt-1.5"><span class="p-price text-sm font-bold">£32.00</span><span class="p-stars text-[10.5px] text-gold tracking-[1.5px]">★★★★☆</span></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-cta hidden mt-10 bg-ink rounded-lg px-8 md:px-11 py-9 flex items-center justify-between gap-7 flex-wrap relative overflow-hidden isolate" id="cta-bags">
+                    <div class="absolute -top-[60px] -right-[60px] w-[260px] h-[260px] bg-gradient-radial from-magenta/15 to-transparent pointer-events-none z-0"></div>
+                    <div class="relative z-1">
+                        <span class="eyebrow text-terracotta-light text-[11px] font-bold tracking-[0.18em] uppercase">Studio Accessories Collection</span>
+                        <h3 class="text-2xl font-serif font-light italic text-white mt-1.5">See every piece in this collection</h3>
+                        <p class="text-[13.5px] text-white/55 mt-1">6 pieces · Handcrafted · Sustainable materials</p>
+                    </div>
+                    <a href="{% url 'reusable_bags' %}" class="btn btn-fill relative z-1 inline-flex items-center justify-center gap-2 font-bold text-[11.5px] tracking-[0.08em] uppercase px-7 py-3.5 rounded bg-magenta text-white border border-magenta transition-all duration-300 hover:bg-magenta-deep hover:border-magenta-deep hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(217,28,115,0.3)]">View Full Collection →</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/shop-collections.js' %}"></script>
+{% endblock %}

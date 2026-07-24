@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact & FAQ | Oladiplenty Stylist Consult{% endblock %}
+
+{% block content %}
+<div class="wrap breadcrumb">
+  <a href="{% url 'home' %}">Home</a><span>/</span>
+  <span style="color:var(--ink); font-weight:600;">Contact &amp; FAQ</span>
+</div>
+
+<div class="wrap intro">
+  <p class="eyebrow">Get in Touch</p>
+  <h1>We'd love to hear from you.</h1>
+  <p>Questions about an order, a bespoke piece, or one of our programmes? Reach us directly below, or check the answers to our most common questions further down the page.</p>
+</div>
+
+<section class="contact-section">
+  <div class="wrap contact-grid">
+
+    <div class="contact-cards">
+      <div class="c-card">
+        <div class="ic">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <p>For orders, custom requests, or general enquiries.</p>
+          <a class="link" href="mailto:oladiplentystylist@gmail.com">oladiplentystylist@gmail.com</a>
+        </div>
+      </div>
+      <div class="c-card">
+        <div class="ic">💬</div>
+        <div>
+          <h4>WhatsApp</h4>
+          <p>Fastest way to reach us — especially for custom orders.</p>
+          <a class="link" href="https://wa.me/447450207203" target="_blank">+44 7450 207203</a>
+        </div>
+      </div>
+      <div class="c-card">
+        <div class="ic">📍</div>
+        <div>
+          <h4>Location</h4>
+          <p>A UK-based studio with a global outlook — click &amp; collect available on made-to-order pieces.</p>
+        </div>
+      </div>
+      <div class="c-card">
+        <div class="ic">🕐</div>
+        <div>
+          <h4>Response Time</h4>
+          <p>We typically reply within 24–48 hours, Monday to Saturday.</p>
+        </div>
+      </div>
+      <div class="c-card">
+        <div class="ic">📷</div>
+        <div>
+          <h4>Follow Along</h4>
+          <p>Instagram, TikTok &amp; YouTube: <strong>@oladiplentystylist</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h3>Send us a message</h3>
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="fname">Full Name</label>
+            <input type="text" id="fname" required>
+          </div>
+          <div class="field">
+            <label for="femail">Email Address</label>
+            <input type="email" id="femail" required>
+          </div>
+        </div>
+        <div class="field full">
+          <label for="fsubject">Subject</label>
+          <select id="fsubject">
+            <option>General Enquiry</option>
+            <option>Ready to Wear Order</option>
+            <option>Custom Order</option>
+            <option>Fashion Academy</option>
+            <option>Digital Resources</option>
+            <option>Wholesale / Press</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="fmessage">Message</label>
+          <textarea id="fmessage" rows="5" required placeholder="Tell us a little about what you need..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+        <p class="form-note">Prefer WhatsApp? <a href="https://wa.me/447450207203" style="color:var(--magenta); font-weight:600;">Message us directly →</a></p>
+        <div class="success-msg" id="successMsg">Thank you — your message has been received. We'll reply within 24–48 hours.</div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div style="margin-bottom:40px;">
+      <p class="eyebrow">FAQ</p>
+      <h2 style="margin-top:10px; font-size:clamp(24px,3vw,32px);">Frequently asked questions.</h2>
+    </div>
+    <div class="faq-groups">
+      <div>
+        <div class="faq-group">
+          <h4>Ordering &amp; Payment</h4>
+          <details class="accordion">
+            <summary>What payment methods do you accept?<span class="chev">+</span></summary>
+            <div class="acc-body">We accept debit and credit cards through our secure checkout. We never ask for card details over WhatsApp, email or social media.</div>
+          </details>
+          <details class="accordion">
+            <summary>Can I change or cancel my order?<span class="chev">+</span></summary>
+            <div class="acc-body">Ready-to-wear orders can be amended within a few hours of placing them — contact us as soon as possible. Once a custom order enters production, changes may no longer be possible.</div>
+          </details>
+          <details class="accordion">
+            <summary>Do you offer wholesale or bulk pricing?<span class="chev">+</span></summary>
+            <div class="acc-body">Yes — get in touch through the form above with "Wholesale / Press" selected, and we'll follow up with details.</div>
+          </details>
+        </div>
+        <div class="faq-group">
+          <h4>Delivery &amp; Returns</h4>
+          <details class="accordion">
+            <summary>How long does delivery take?<span class="chev">+</span></summary>
+            <div class="acc-body">Ready-to-wear orders arrive within 3–5 working days in the UK, and 7–10 working days across Europe. Custom orders vary by piece — we'll confirm a timeline with you directly.</div>
+          </details>
+          <details class="accordion">
+            <summary>What's your returns policy on customised items?<span class="chev">+</span></summary>
+            <div class="acc-body">Customised and made-to-order items generally can't be returned or exchanged unless they're faulty, damaged, or made differently from what was agreed. See our full Order Guarantee Policy for details.</div>
+          </details>
+        </div>
+      </div>
+      <div>
+        <div class="faq-group">
+          <h4>Custom Orders</h4>
+          <details class="accordion">
+            <summary>Can I use my own fabric for a bespoke piece?<span class="chev">+</span></summary>
+            <div class="acc-body">Yes — that's exactly what our Made to Order service is built for. Choose a style reference, upload your fabric, and we'll take it from there.</div>
+          </details>
+          <details class="accordion">
+            <summary>Do you offer click &amp; collect?<span class="chev">+</span></summary>
+            <div class="acc-body">Yes, for made-to-order pieces — you'll choose your preferred collection point as part of the custom order process.</div>
+          </details>
+        </div>
+        <div class="faq-group">
+          <h4>Fashion Academy &amp; Resources</h4>
+          <details class="accordion">
+            <summary>Do I need experience to join the Masterclass?<span class="chev">+</span></summary>
+            <div class="acc-body">Not at all — the Women's Fashion Masterclass is built to take complete beginners through to aspiring fashion entrepreneurs.</div>
+          </details>
+          <details class="accordion">
+            <summary>Are the digital guides downloaded automatically?<span class="chev">+</span></summary>
+            <div class="acc-body">Yes — once your payment is confirmed, your PDF guide downloads instantly. No account or waiting required.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}
