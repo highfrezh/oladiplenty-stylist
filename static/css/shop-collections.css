@@ -73,6 +73,23 @@ body {
   opacity: 1;
 }
 
+/* Mobile Hero Image Fix (< 768px) */
+@media (max-width: 767px) {
+  .hero-slide {
+    background-size: cover !important;
+    background-position: center top !important;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(20, 14, 18, 0.88) 0%,
+      rgba(20, 14, 18, 0.65) 50%,
+      rgba(20, 14, 18, 0.95) 100%
+    ) !important;
+  }
+}
+
 /* Product card image backgrounds */
 .p-image {
   background-size: cover;
